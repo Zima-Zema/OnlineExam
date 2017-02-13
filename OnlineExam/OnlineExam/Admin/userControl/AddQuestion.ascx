@@ -16,6 +16,10 @@
     .auto-style5 {
         width: 109px;
     }
+    .auto-style6 {
+        height: 23px;
+        width: 140px;
+    }
 </style>
 
 <table style="width:100%;">
@@ -23,7 +27,7 @@
         <td class="auto-style2">
             <asp:Label ID="lbl_course" runat="server" CssClass="col-md-2 control-label" Text="Select Course"></asp:Label>
         </td>
-        <td>
+        <td colspan="2">
             <asp:DropDownList ID="ddl_course" runat="server" CssClass="form-control">
             </asp:DropDownList>
         </td>
@@ -32,16 +36,16 @@
         <td class="auto-style3">
             <asp:Label ID="lbl_questionType" runat="server" CssClass="col-md-2 control-label" Text="Question Type"></asp:Label>
         </td>
+        <td class="auto-style6">
+            <asp:Button ID="btn_mcqType" runat="server" OnClick="Button1_Click" Text="MCQ" CssClass="btn btn-primary" Width="150px" />
+        </td>
         <td class="auto-style1">
-            <asp:DropDownList ID="ddl_Qtype" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Qtype_SelectedIndexChanged">
-            </asp:DropDownList>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="MCQ" />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="True|False" />
+            <asp:Button ID="btn_tfType" runat="server" OnClick="Button2_Click" Text="TF" CssClass="btn btn-primary" Width="150px" />
         </td>
     </tr>
     <tr>
         <td class="auto-style2">&nbsp;</td>
-        <td>
+        <td colspan="2">
             <asp:Panel ID="pl_true" runat="server">
                 <table style="width:100%;">
                     <tr>
@@ -76,7 +80,7 @@
     </tr>
     <tr>
         <td class="auto-style2">&nbsp;</td>
-        <td>
+        <td colspan="2">
             <asp:Panel ID="pl_mcq" runat="server">
                 <table style="width:100%;">
                     <tr>
@@ -143,7 +147,7 @@
     </tr>
     <tr>
         <td class="auto-style2">&nbsp;</td>
-        <td>
+        <td colspan="2">
             <asp:Button ID="btn_insert" runat="server" CssClass="btn btn-primary" OnClick="btn_insert_Click" Text="Create" Width="200px" />
             <asp:Button ID="btn_cancel" runat="server" CssClass="btn btn-danger" OnClick="btn_cancel_Click" Text="Cancel" Width="150px" />
             <asp:Label ID="lbl_status" runat="server"></asp:Label>

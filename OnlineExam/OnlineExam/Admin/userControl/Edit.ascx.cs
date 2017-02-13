@@ -40,7 +40,7 @@ namespace OnlineExam.Admin.userControl
             ddl_qByCourse.DataValueField = "Question-ID";
             ddl_qByCourse.DataBind();
             ListItem c = new ListItem("none", "0");
-            ddl_course.Items.Insert(0, c);
+            ddl_qByCourse.Items.Insert(0, c);
         }
         private void FillMcqModel()
         {
@@ -70,13 +70,13 @@ namespace OnlineExam.Admin.userControl
             ListItem none = new ListItem("none", "NULL");
             ListItem mcq = new ListItem("MCQ", "MCQ");
             ListItem tf = new ListItem("TF", "TF");
-            ddl_mcqType.Items.Insert(0, none);
-            ddl_mcqType.Items.Insert(1, mcq);
-            ddl_mcqType.Items.Insert(2, tf);
+            //ddl_mcqType.Items.Insert(0, none);
+            ddl_mcqType.Items.Insert(0, mcq);
+            ddl_mcqType.Items.Insert(1, tf);
 
-            ddl_tfType.Items.Insert(0, none);
-            ddl_tfType.Items.Insert(1, mcq);
-            ddl_tfType.Items.Insert(2, tf);
+            //ddl_tfType.Items.Insert(0, none);
+            ddl_tfType.Items.Insert(0, mcq);
+            ddl_tfType.Items.Insert(1, tf);
 
             ddl_tfType.DataBind();
         }
@@ -84,8 +84,10 @@ namespace OnlineExam.Admin.userControl
         protected void ddl_course_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            ddl_qByCourse.Enabled = true;
-            FillQDDL();
+            //ddl_qByCourse.Enabled = true;
+           // DetailsView1.DataSource= Questions.GetQuestionByCrsID(int.Parse(ddl_course.SelectedValue));
+            //DetailsView1.DataBind();
+           // FillQDDL();
         }
 
 

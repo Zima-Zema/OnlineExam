@@ -33,9 +33,11 @@
             </asp:DropDownList>
             </td>
         <td class="auto-style4">
-            &nbsp;</td>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </td>
         <td class="auto-style5" colspan="2">
-            &nbsp;</td>
+            <asp:Label ID="Label13" runat="server" Text="Label"></asp:Label>
+        </td>
         <td>
             &nbsp;</td>
     </tr>
@@ -180,28 +182,34 @@
     <tr>
         <td colspan="7">
             <asp:Panel ID="pl_createQ" runat="server">
+                <uc1:AddQuestion ID="AddQuestion1" runat="server" />
+            </asp:Panel>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            <asp:Panel ID="pl_manage" runat="server">
                 <table style="width:100%;">
                     <tr>
-                        <td class="auto-style2">
-                            <asp:Label ID="lbl_course" runat="server" CssClass="col-md-2 control-label" Text="Select Course"></asp:Label>
+                        <td class="auto-style7">
+                            <asp:Label ID="lbl_course" runat="server" Text="Courses"></asp:Label>
                         </td>
-                        <td>
-                            <asp:DropDownList ID="ddl_course" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_course_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </td>
+                        <td colspan="2">&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">
-                            <asp:Label ID="lbl_questionType" runat="server" CssClass="col-md-2 control-label" Text="Question Type"></asp:Label>
+                        <td class="auto-style7">
+                            <asp:Label ID="lbl_Q" runat="server" Text="Questions"></asp:Label>
                         </td>
-                        <td class="auto-style1">
-                            <asp:DropDownList ID="ddl_Qtype" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Qtype_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </td>
+                        <td colspan="2">&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style7">&nbsp;</td>
+                        <td colspan="2">
                             <asp:Panel ID="pl_true" runat="server">
                                 <table style="width:100%;">
                                     <tr>
@@ -210,6 +218,15 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_tfHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="lbl_tftupe" runat="server" CssClass="col-md-2 control-label" Text="Type"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddl_tfType" runat="server" Enabled="False">
+                                            </asp:DropDownList>
                                         </td>
                                     </tr>
                                     <tr>
@@ -230,13 +247,20 @@
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_tfGrade" ErrorMessage="Grade Must Be Number" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <asp:Panel ID="pl_trueToMcq" runat="server">
+                                            </asp:Panel>
+                                        </td>
+                                    </tr>
                                 </table>
                             </asp:Panel>
                         </td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td>
+                        <td class="auto-style7">&nbsp;</td>
+                        <td colspan="2">
                             <asp:Panel ID="pl_mcq" runat="server">
                                 <table style="width:100%;">
                                     <tr>
@@ -245,6 +269,15 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_mcqHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">
+                                            <asp:Label ID="lbl_mcqtype" runat="server" CssClass="col-md-2 control-label" Text="Type"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddl_mcqType" runat="server" Enabled="False">
+                                            </asp:DropDownList>
                                         </td>
                                     </tr>
                                     <tr>
@@ -300,23 +333,21 @@
                                 </table>
                             </asp:Panel>
                         </td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td>
-                            <asp:Button ID="btn_insert" runat="server" CssClass="btn btn-primary" OnClick="btn_insert_Click" Text="Create" Width="200px" />
-                            <asp:Button ID="btn_cancelCreate" runat="server" CssClass="btn btn-danger" OnClick="btn_cancelCreate_Click" Text="Cancel" Width="150px" />
+                        <td class="auto-style7">
+                            <asp:Button ID="btn_update" runat="server" CssClass="btn btn-primary" Text="Update" Width="150px" OnClick="btn_update_Click" />
+                        </td>
+                        <td class="auto-style6">
+                            <asp:Button ID="btn_delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this Instructor?');" CssClass="btn btn-danger" Text="Delete" Width="150px" OnClick="btn_delete_Click" />
+                        </td>
+                        <td colspan="2">
+                            <asp:Button ID="btn_cancel0" runat="server" Text="Cancel" Width="150px" CssClass="btn btn-default" OnClick="btn_cancel0_Click" />
                             <asp:Label ID="lbl_status0" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>
-            </asp:Panel>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="7">
-            <asp:Panel ID="pl_manage" runat="server">
-                <uc2:Edit ID="Edit1" runat="server" />
             </asp:Panel>
         </td>
     </tr>

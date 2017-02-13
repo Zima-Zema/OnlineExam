@@ -22,6 +22,24 @@ namespace WebApplication1.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddl_EditQuestion;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Label13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label13;
+        
+        /// <summary>
         /// gv_EditQuestion control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,24 @@ namespace WebApplication1.Admin {
         protected global::System.Web.UI.WebControls.Panel pl_createQ;
         
         /// <summary>
+        /// AddQuestion1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OnlineExam.Admin.userControl.AddQuestion AddQuestion1;
+        
+        /// <summary>
+        /// pl_manage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pl_manage;
+        
+        /// <summary>
         /// lbl_course control.
         /// </summary>
         /// <remarks>
@@ -85,31 +121,13 @@ namespace WebApplication1.Admin {
         protected global::System.Web.UI.WebControls.Label lbl_course;
         
         /// <summary>
-        /// ddl_course control.
+        /// lbl_Q control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_course;
-        
-        /// <summary>
-        /// lbl_questionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_questionType;
-        
-        /// <summary>
-        /// ddl_Qtype control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_Qtype;
+        protected global::System.Web.UI.WebControls.Label lbl_Q;
         
         /// <summary>
         /// pl_true control.
@@ -137,6 +155,24 @@ namespace WebApplication1.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_tfHead;
+        
+        /// <summary>
+        /// lbl_tftupe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_tftupe;
+        
+        /// <summary>
+        /// ddl_tfType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_tfType;
         
         /// <summary>
         /// lbl_model control.
@@ -184,6 +220,15 @@ namespace WebApplication1.Admin {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
+        /// pl_trueToMcq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pl_trueToMcq;
+        
+        /// <summary>
         /// pl_mcq control.
         /// </summary>
         /// <remarks>
@@ -209,6 +254,24 @@ namespace WebApplication1.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_mcqHead;
+        
+        /// <summary>
+        /// lbl_mcqtype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mcqtype;
+        
+        /// <summary>
+        /// ddl_mcqType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_mcqType;
         
         /// <summary>
         /// Label12 control.
@@ -328,22 +391,31 @@ namespace WebApplication1.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddl_mcqModel;
         
         /// <summary>
-        /// btn_insert control.
+        /// btn_update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_insert;
+        protected global::System.Web.UI.WebControls.Button btn_update;
         
         /// <summary>
-        /// btn_cancelCreate control.
+        /// btn_delete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cancelCreate;
+        protected global::System.Web.UI.WebControls.Button btn_delete;
+        
+        /// <summary>
+        /// btn_cancel0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_cancel0;
         
         /// <summary>
         /// lbl_status0 control.
@@ -353,23 +425,5 @@ namespace WebApplication1.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_status0;
-        
-        /// <summary>
-        /// pl_manage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pl_manage;
-        
-        /// <summary>
-        /// Edit1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::OnlineExam.Admin.userControl.Edit Edit1;
     }
 }
