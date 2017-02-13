@@ -283,6 +283,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Specific_student_information.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -730,6 +731,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Specific_student_information.aspx.cs">
+      <DependentUpon>Specific_student_information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Specific_student_information.aspx.designer.cs">
+      <DependentUpon>Specific_student_information.aspx</DependentUpon>
     </Compile>
     <Compile Include="SStudentsMaster.Master.cs">
       <DependentUpon>SStudentsMaster.Master</DependentUpon>
