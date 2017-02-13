@@ -225,7 +225,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
     <Content Include="Display_topics_per_Course.aspx" />
+    <Content Include="Exam_and_students_by_date.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -279,6 +281,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="SStudentsMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -608,12 +611,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DisplayStudentAnswersAfterGeneration.aspx.cs">
+      <DependentUpon>DisplayStudentAnswersAfterGeneration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayStudentAnswersAfterGeneration.aspx.designer.cs">
+      <DependentUpon>DisplayStudentAnswersAfterGeneration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Display_topics_per_Course.aspx.cs">
       <DependentUpon>Display_topics_per_Course.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Display_topics_per_Course.aspx.designer.cs">
       <DependentUpon>Display_topics_per_Course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_and_students_by_date.aspx.cs">
+      <DependentUpon>Exam_and_students_by_date.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exam_and_students_by_date.aspx.designer.cs">
+      <DependentUpon>Exam_and_students_by_date.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -641,6 +658,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SStudentsMaster.Master.cs">
+      <DependentUpon>SStudentsMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SStudentsMaster.Master.designer.cs">
+      <DependentUpon>SStudentsMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
