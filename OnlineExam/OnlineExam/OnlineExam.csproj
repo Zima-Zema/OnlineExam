@@ -241,6 +241,8 @@
     <Content Include="AdminMaster.master" />
     <Content Include="instructor.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="InstructorForm.aspx" />
+    <Content Include="Instructors_per_course.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -641,6 +643,20 @@
     </Compile>
     <Compile Include="instructor.Master.designer.cs">
       <DependentUpon>instructor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorForm.aspx.cs">
+      <DependentUpon>InstructorForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstructorForm.aspx.designer.cs">
+      <DependentUpon>InstructorForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instructors_per_course.aspx.cs">
+      <DependentUpon>Instructors_per_course.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instructors_per_course.aspx.designer.cs">
+      <DependentUpon>Instructors_per_course.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
