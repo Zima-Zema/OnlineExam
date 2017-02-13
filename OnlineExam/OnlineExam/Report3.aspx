@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/instructor.master" AutoEventWireup="true" CodeFile="Report3.aspx.cs" Inherits="Report3" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/instructor.Master" AutoEventWireup="true" CodeBehind="Report3.aspx.cs" Inherits="OnlineExam.Report3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style1 {
@@ -59,4 +58,3 @@
         
     </form>
 </asp:Content>
-
