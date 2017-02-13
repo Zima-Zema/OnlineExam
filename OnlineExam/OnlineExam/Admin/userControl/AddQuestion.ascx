@@ -35,6 +35,8 @@
         <td class="auto-style1">
             <asp:DropDownList ID="ddl_Qtype" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Qtype_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="MCQ" />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="True|False" />
         </td>
     </tr>
     <tr>

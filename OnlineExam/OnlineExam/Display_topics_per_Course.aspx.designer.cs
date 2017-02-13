@@ -10,7 +10,7 @@
 namespace OnlineExam {
     
     
-    public partial class Display_topics_per_Course1 {
+    public partial class Display_topics_per_Course {
         
         /// <summary>
         /// form1 control.
