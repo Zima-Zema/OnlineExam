@@ -236,6 +236,7 @@
     <Content Include="Admin\admin.Master" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="AdminMaster.master" />
+    <Content Include="instructor.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -608,6 +609,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="instructor.Master.cs">
+      <DependentUpon>instructor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="instructor.Master.designer.cs">
+      <DependentUpon>instructor.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
