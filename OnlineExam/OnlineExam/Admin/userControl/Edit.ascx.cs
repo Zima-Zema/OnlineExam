@@ -83,8 +83,9 @@ namespace OnlineExam.Admin.userControl
 
         protected void ddl_course_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillQDDL();
+            
             ddl_qByCourse.Enabled = true;
+            FillQDDL();
         }
 
 
@@ -101,10 +102,10 @@ namespace OnlineExam.Admin.userControl
                 txt_mcqHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
                 ddl_mcqType.SelectedIndex = 1;
                 txt_mcqGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
-                txt_ansA.Text = dataTable.Rows[0]["Choice-Char"].ToString();
-                txt_ansB.Text = dataTable.Rows[1]["Choice-Char"].ToString();
-                txt_ansC.Text = dataTable.Rows[2]["Choice-Char"].ToString();
-                txt_ansD.Text = dataTable.Rows[3]["Choice-Char"].ToString();
+                txt_ansA.Text = dataTable.Rows[0]["Choice-Text"].ToString();
+                txt_ansB.Text = dataTable.Rows[1]["Choice-Text"].ToString();
+                txt_ansC.Text = dataTable.Rows[2]["Choice-Text"].ToString();
+                txt_ansD.Text = dataTable.Rows[3]["Choice-Text"].ToString();
                 ddl_mcqModel.SelectedValue = dataTable.Rows[0]["QModelAnswer"].ToString();
             }
             else

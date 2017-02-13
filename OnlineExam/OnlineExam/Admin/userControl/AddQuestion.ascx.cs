@@ -30,12 +30,12 @@ namespace OnlineExam.Admin.userControl
 
 
             ddl_Qtype.Items.Clear();
-            ListItem none = new ListItem("none", "NULL");
+            //ListItem none = new ListItem("none", "NULL");
             ListItem mcq = new ListItem("MCQ", "MCQ");
             ListItem tf = new ListItem("TF", "TF");
-            ddl_Qtype.Items.Insert(0, none);
-            ddl_Qtype.Items.Insert(1, mcq);
-            ddl_Qtype.Items.Insert(2, tf);
+            //ddl_Qtype.Items.Insert(0, none);
+            ddl_Qtype.Items.Insert(0, mcq);
+            ddl_Qtype.Items.Insert(1, tf);
             ddl_Qtype.DataBind();
             pl_mcq.Visible = false;
             pl_true.Visible = false;
@@ -66,15 +66,17 @@ namespace OnlineExam.Admin.userControl
 
         protected void ddl_Qtype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddl_Qtype.SelectedValue== "MCQ")
+            if (ddl_Qtype.SelectedValue.ToString()== "MCQ")
             {
                 pl_mcq.Visible = true;
+                pl_true.Visible = false;
                 FillMcqModel();
 
             }
-            else if(ddl_Qtype.SelectedValue == "TF")
+            else if(ddl_Qtype.SelectedValue.ToString() == "TF")
             {
                 pl_true.Visible = true;
+                pl_mcq.Visible = false;
                 FillTfModel();
                 
             }

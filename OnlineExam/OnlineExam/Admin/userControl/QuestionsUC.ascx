@@ -20,24 +20,27 @@
     .auto-style6 {
         width: 276px;
     }
+    .auto-style7 {
+        width: 67px;
+    }
 </style>
 
 <table class="auto-style1">
     <tr>
         <td class="auto-style6">Select Course To Edit Quetsions </td>
-        <td class="auto-style3">
+        <td class="auto-style3" colspan="2">
             &nbsp;<asp:DropDownList ID="ddl_EditQuestion" runat="server" OnSelectedIndexChanged="ddl_EditQuestion_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
             </td>
         <td class="auto-style4">
             &nbsp;</td>
-        <td class="auto-style5">
+        <td class="auto-style5" colspan="2">
             &nbsp;</td>
         <td>
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style2" colspan="5">
+        <td class="auto-style2" colspan="7">
             <br />
             <asp:DetailsView ID="gv_EditQuestion" runat="server" AllowPaging="True" AutoGenerateRows="False" Height="50px" OnPageIndexChanging="DetailsView1_PageIndexChanging1" Width="567px" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
@@ -154,38 +157,42 @@
     </tr>
     <tr>
         <td class="auto-style6">&nbsp;</td>
-        <td class="auto-style3">
+        <td class="auto-style3" colspan="2">
             &nbsp;</td>
         <td class="auto-style4">
             <asp:Label ID="lbl_status" runat="server"></asp:Label>
         </td>
-        <td class="auto-style5">
+        <td class="auto-style5" colspan="2">
             &nbsp;</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td colspan="5">
+        <td colspan="2" class="auto-style7">
             <asp:Button ID="btn_CreateQuestion" runat="server" CssClass="btn btn-primary" OnClick="btn_CreateQuestion_Click" Text="Add" Width="150px" />
+        </td>
+        <td colspan="3">
             <asp:Button ID="btn_ManageQuestion" runat="server" CssClass="btn btn-primary" OnClick="btn_ManageQuestion_Click" Text="Manage" Width="150px" />
+        </td>
+        <td colspan="2">
             <asp:Button ID="btn_cancel" runat="server" CssClass="btn btn-default" OnClick="btn_cancel_Click" Text="Cancel" Width="150px" />
         </td>
     </tr>
     <tr>
-        <td colspan="5">
+        <td colspan="7">
             <asp:Panel ID="pl_createQ" runat="server">
                 <uc1:AddQuestion ID="AddQuestion1" runat="server" />
             </asp:Panel>
         </td>
     </tr>
     <tr>
-        <td colspan="5">
+        <td colspan="7">
             <asp:Panel ID="pl_manage" runat="server">
                 <uc2:Edit ID="Edit1" runat="server" />
             </asp:Panel>
         </td>
     </tr>
     <tr>
-        <td colspan="5">&nbsp;</td>
+        <td colspan="7">&nbsp;</td>
     </tr>
     </table>
 

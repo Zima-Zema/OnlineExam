@@ -1,8 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="OnlineExam.Admin.userControl.Edit" %>
 <style type="text/css">
-    .auto-style1 {
-        width: 123px;
-    }
     .auto-style4 {
         width: 108px;
     }
@@ -12,11 +9,14 @@
     .auto-style6 {
         width: 343px;
     }
+    .auto-style7 {
+        width: 152px;
+    }
 </style>
 
 <table style="width:100%;">
     <tr>
-        <td class="auto-style1">
+        <td class="auto-style7">
             <asp:Label ID="lbl_course" runat="server" Text="Courses"></asp:Label>
         </td>
         <td colspan="2">
@@ -26,7 +26,7 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style1">
+        <td class="auto-style7">
             <asp:Label ID="lbl_Q" runat="server" Text="Questions"></asp:Label>
         </td>
         <td colspan="2">
@@ -36,7 +36,7 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style1">&nbsp;</td>
+        <td class="auto-style7">&nbsp;</td>
         <td colspan="2">
             <asp:Panel ID="pl_true" runat="server">
                 <table style="width:100%;">
@@ -87,7 +87,7 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style1">&nbsp;</td>
+        <td class="auto-style7">&nbsp;</td>
         <td colspan="2">
             <asp:Panel ID="pl_mcq" runat="server">
                 <table style="width:100%;">
@@ -164,8 +164,10 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style6" colspan="2">
+        <td class="auto-style7">
             <asp:Button ID="btn_update" runat="server" CssClass="btn btn-primary" Text="Update" Width="150px" OnClick="btn_update_Click" />
+        </td>
+        <td class="auto-style6">
             <asp:Button ID="btn_delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this Instructor?');" CssClass="btn btn-danger" Text="Delete" Width="150px" OnClick="btn_delete_Click" />
         </td>
         <td colspan="2">
