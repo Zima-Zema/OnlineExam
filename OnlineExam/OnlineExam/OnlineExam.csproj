@@ -247,6 +247,7 @@
     <Content Include="Report1.aspx" />
     <Content Include="Report2.aspx" />
     <Content Include="Report3.aspx" />
+    <Content Include="Report4.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -692,6 +693,13 @@
     </Compile>
     <Compile Include="Report3.aspx.designer.cs">
       <DependentUpon>Report3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report4.aspx.cs">
+      <DependentUpon>Report4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report4.aspx.designer.cs">
+      <DependentUpon>Report4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
