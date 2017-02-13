@@ -285,6 +285,7 @@
     <Content Include="Site.Master" />
     <Content Include="Specific_student_information.aspx" />
     <Content Include="Student_courses.aspx" />
+    <Content Include="Student_exams_by_student_id.aspx" />
     <Content Include="Student_exam_answer_model_answer.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -755,6 +756,13 @@
     </Compile>
     <Compile Include="Student_courses.aspx.designer.cs">
       <DependentUpon>Student_courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_exams_by_student_id.aspx.cs">
+      <DependentUpon>Student_exams_by_student_id.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_exams_by_student_id.aspx.designer.cs">
+      <DependentUpon>Student_exams_by_student_id.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_exam_answer_model_answer.aspx.cs">
       <DependentUpon>Student_exam_answer_model_answer.aspx</DependentUpon>
