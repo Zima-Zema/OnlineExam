@@ -9,12 +9,10 @@ namespace OnlineExam
 {
     public partial class Report1 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            ObjectDataSource obds = new ObjectDataSource();
+        DataTable dt = new DataTable();
+        ObjectDataSource obds = new ObjectDataSource();
 
-    protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
@@ -57,6 +55,5 @@ namespace OnlineExam
         {
 
         }
-    }
     }
 }
