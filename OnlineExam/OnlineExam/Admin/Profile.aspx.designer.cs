@@ -20,5 +20,14 @@ namespace OnlineExam.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::WebApplication1.Admin.Admin_UC.adminprofile adminprofile1;
+        
+        /// <summary>
+        /// AddQuestion1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OnlineExam.Admin.userControl.AddQuestion AddQuestion1;
     }
 }

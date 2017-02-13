@@ -32,7 +32,7 @@ namespace OnlineExam.Admin.userControl
             ddl_Qtype.Items.Clear();
             //ListItem none = new ListItem("none", "NULL");
             ListItem mcq = new ListItem("MCQ", "MCQ");
-            ListItem tf = new ListItem("TF", "TF");
+            ListItem tf = new ListItem("True|False", "TF");
             //ddl_Qtype.Items.Insert(0, none);
             ddl_Qtype.Items.Insert(0, mcq);
             ddl_Qtype.Items.Insert(1, tf);
@@ -66,25 +66,45 @@ namespace OnlineExam.Admin.userControl
 
         protected void ddl_Qtype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddl_Qtype.SelectedValue.ToString()== "MCQ")
-            {
-                pl_mcq.Visible = true;
-                pl_true.Visible = false;
-                FillMcqModel();
+            lbl_status.Text = ddl_Qtype.SelectedValue;
 
-            }
-            else if(ddl_Qtype.SelectedValue.ToString() == "TF")
-            {
-                pl_true.Visible = true;
-                pl_mcq.Visible = false;
-                FillTfModel();
-                
-            }
-            else
-            {
-                pl_mcq.Visible = false;
-                pl_true.Visible = false;
-            }
+            //if (ddl_Qtype.SelectedIndex==0)
+            //{
+            //    pl_mcq.Visible = true;
+            //    pl_true.Visible = false;
+            //    FillMcqModel();
+
+            //}
+            //if (ddl_Qtype.SelectedIndex==1)
+            //{
+            //    pl_true.Visible = true;
+            //    pl_mcq.Visible = false;
+            //    FillTfModel();
+
+            //}
+            //else
+            //{
+            //    pl_mcq.Visible = false;
+            //    pl_true.Visible = false;
+            //}
+            //switch (ddl_Qtype.SelectedIndex)
+            //{
+            //    case 0:
+            //        pl_mcq.Visible = true;
+            //        pl_true.Visible = false;
+            //        FillMcqModel();
+            //        break;
+            //    case 1:
+            //        pl_true.Visible = true;
+            //        pl_mcq.Visible = false;
+            //        FillTfModel();
+            //        break;
+            //    default:
+            //        pl_mcq.Visible = false;
+            //        pl_true.Visible = false;
+            //        break;
+            //}
+
         }
 
         protected void btn_insert_Click(object sender, EventArgs e)
@@ -127,6 +147,21 @@ namespace OnlineExam.Admin.userControl
             txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
             pl_mcq.Visible = false;
             pl_true.Visible = false;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            pl_mcq.Visible = true;
+            pl_true.Visible = false;
+            FillMcqModel();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            pl_true.Visible = true;
+            pl_mcq.Visible = false;
+            FillTfModel();
+            
         }
     }
 }
