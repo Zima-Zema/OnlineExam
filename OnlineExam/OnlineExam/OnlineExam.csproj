@@ -285,6 +285,7 @@
     <Content Include="Site.Master" />
     <Content Include="Specific_student_information.aspx" />
     <Content Include="Students_have_corrective_exam_by_course.aspx" />
+    <Content Include="Students_have_corrective_exam_by_dept.aspx" />
     <Content Include="Student_courses.aspx" />
     <Content Include="Student_exams_by_student_id.aspx" />
     <Content Include="Student_exam_answer_model_answer.aspx" />
@@ -757,6 +758,13 @@
     </Compile>
     <Compile Include="Students_have_corrective_exam_by_course.aspx.designer.cs">
       <DependentUpon>Students_have_corrective_exam_by_course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Students_have_corrective_exam_by_dept.aspx.cs">
+      <DependentUpon>Students_have_corrective_exam_by_dept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students_have_corrective_exam_by_dept.aspx.designer.cs">
+      <DependentUpon>Students_have_corrective_exam_by_dept.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_courses.aspx.cs">
       <DependentUpon>Student_courses.aspx</DependentUpon>
