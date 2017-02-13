@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 namespace OnlineExam
 {
-    public partial class Display_topics_per_Course : System.Web.UI.Page
+    public partial class Display_topics_per_Course1 : System.Web.UI.Page
     {
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
