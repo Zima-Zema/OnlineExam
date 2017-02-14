@@ -16,13 +16,20 @@ namespace OnlineExam
         {
             if (!Page.IsPostBack)
             {
-                obds.TypeName = "BusinessLayer";
-                obds.SelectMethod = "Display_Department_by_Idand_Name";
-                obds.Select();
-                ddldept.DataSource = obds;
+
+                ddldept.DataSource = BusinessLayer.Display_course_by_Idand_Name();
                 ddldept.DataTextField = "Dept_Name";
                 ddldept.DataValueField = "Dept_Id";
+                ListItem li = new ListItem("none", "0");
+                ddldept.Items.Insert(0, li);
                 ddldept.DataBind();
+                //obds.TypeName = "BusinessLayer";
+                //obds.SelectMethod = "Display_Department_by_Idand_Name";
+                //obds.Select();
+                //ddldept.DataSource = obds;
+                //ddldept.DataTextField = "Dept_Name";
+                //ddldept.DataValueField = "Dept_Id";
+                //ddldept.DataBind();
                 /*
                  if (!IsPostBack) { 
                 ddl_R2.DataSource = Reports.ROne();
