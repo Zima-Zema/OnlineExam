@@ -20,6 +20,7 @@
     <link href="css/footer.css" rel="stylesheet" />		 
  </head>
     <body>
+        <form id="form1" runat="server">
     <!-- start navigation bar -->
       <div>
       <div nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
@@ -37,15 +38,13 @@
         <!-- Links -->
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	
-      <ul class="nav navbar-nav navbar-right ">
+      <ul class="nav navbar-nav navbar-right " style=" margin-right: 150px;">
         <li class="active"><a href="index1.html"> Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="StudentForm.aspx">Students Profile</a></li>
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Display Reports<span class="caret"></span></a>
-		  
-          <ul class="dropdown-menu">
+		  <ul class="dropdown-menu">
            <li><a href="Report1.aspx">Report1</a></li>
-          
             <li><a href="Report2.aspx">Report2</a></li>
             <li><a href="Report3.aspx">Report3</a></li>
               <li><a href="Report4.aspx">Report4</a></li>
@@ -56,24 +55,45 @@
            
           </ul>
         </li>
-		<li><a href="#">Department</a></li>
-		<li><a href="InstructorForm.aspx">Instructor</a></li>
+		
+		<li><a href="InstructorForm.aspx">Profile</a></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
 		  
           <ul class="dropdown-menu">
-            <li><a href="#">Programming</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Android</a></li>
+            <li><a href="Display_topics_per_Course.aspx">Topic Courses</a></li>
+            
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course<span class="caret"></span></a>
+		  
+          <ul class="dropdown-menu">
+            <li><a href="Questions_y_courses_without_model_answer">Questions for course</a></li>
+            <li><a href="Specific_student_information.aspx">Students</a></li>
+            <li><a href="Student_courses.aspx">Students Courses</a></li>
+            
             
            
           </ul>
         </li>
           
 		      
-		<li><a href="#">Exam</a></li>
+		<li><a href="#"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exam</a>
+            <ul class="dropdown-menu">
+            <li><a href="Exam_and_students_by_date.aspx">Exam By Date</a></li>
+            <li><a href="Students_have_corrective_exam_by_course.aspx">Corrective By Course</a></li>
+            <li><a href="Students_have_corrective_exam_by_dept.aspx">Corrective By Dept</a></li>
+            <li><a href="Student_exam_answer_model_answer.aspx">Exam with Model Answer</a></li>
+                <li><a href="DisplayStudentAnswersAfterGeneration.aspx">Exam Answer</a></li>
+             <li><a href="Student_exams_by_student_id.aspx">Students Exams</a></li> 
+                <li><a href="Students_results.aspx">Students Result</a></li>    
+            <li role="separator" class="divider"></li>
+            
+           
+          </ul>
+
+		</li>
       </ul>
         </div>  
        </div>
@@ -93,5 +113,6 @@
 
          <script src="js/jquery-1.12.4.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>		
+        </form>
 </body>
 </html>

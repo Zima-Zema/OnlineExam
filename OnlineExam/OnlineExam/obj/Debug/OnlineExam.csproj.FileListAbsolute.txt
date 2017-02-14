@@ -153,7 +153,6 @@ C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.O
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.dll
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.pdb
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\ApplicationInsights.config
@@ -235,3 +234,4 @@ C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owi
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.dll
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.pdb
+C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache
