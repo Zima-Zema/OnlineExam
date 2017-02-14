@@ -1,32 +1,38 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/instructor.master" AutoEventWireup="true" CodeFile="Instructors per course .aspx.cs" Inherits="Instructors_per_course_" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/instructor.Master" AutoEventWireup="true" CodeBehind="Students_have_corrective_exam_by_course.aspx.cs" Inherits="OnlineExam.Students_have_corrective_exam_by_course" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 294px;
+        }
+        .auto-style2 {
+            width: 186px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="form1" runat="server">
-        <p>
+        
             <br />
-        </p>
             <table class="nav-justified">
                 <tr>
-                    <td>&nbsp;</td>
-                    <td class="auto-style1">
-                        <asp:Label ID="Label1" runat="server" Text="Enter Course No"></asp:Label>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="Label1" runat="server" Text="Select Course No"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlcourse" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlcourse_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlcourse" runat="server" AutoPostBack="True" CssClass="col-xs-offset-0" OnSelectedIndexChanged="ddlcourse_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
+                    <td class="auto-style1">
+                        <br />
+                        <br />
+                    </td>
                     <td colspan="2">
-                        <asp:GridView ID="gvDisplayInstructor" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvDisplayTopic_SelectedIndexChanged" Width="918px">
+                        <asp:Label ID="lblresult" runat="server"></asp:Label>
+                        <br />
+                        <asp:GridView ID="gvCorrectiveByCourse" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvCorrectiveByCourse_SelectedIndexChanged" Width="568px">
                             <AlternatingRowStyle BackColor="White" />
                             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -38,16 +44,9 @@
                             <SortedDescendingCellStyle BackColor="#FCF6C0" />
                             <SortedDescendingHeaderStyle BackColor="#820000" />
                         </asp:GridView>
-                        <br />
-                        <asp:Label ID="lblresult" runat="server"></asp:Label>
                     </td>
                 </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
             </table>
-        </form>
+        
+    </form>
 </asp:Content>
-
