@@ -20,6 +20,7 @@
     <link href="css/footer.css" rel="stylesheet" />		 
  </head>
     <body>
+        <form id="form1" runat="server">
     <!-- start navigation bar -->
       <div>
       <div nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
@@ -76,6 +77,9 @@
 		<li><a href="#">Exam</a></li>
       </ul>
         </div>  
+       <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1">
+      </asp:Menu>
+      <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
        </div>
 
     </div>
@@ -93,5 +97,6 @@
 
          <script src="js/jquery-1.12.4.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>		
+        </form>
 </body>
 </html>
