@@ -68,6 +68,9 @@
            
           </ul>
             </li>
+          <li><a href="Account/Login.aspx"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LogOut</a>
+
+		</li>
       </ul>
         </div>  
        </div>

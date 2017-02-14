@@ -234,4 +234,3 @@ C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owi
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.dll
 C:\Users\Phantom\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.pdb
-C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache
