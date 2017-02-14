@@ -28,14 +28,15 @@ namespace WebApplication1.Admin
             ddl_EditQuestion.Items.Insert(0, m);
             pl_createQ.Visible = false;
             pl_manage.Visible = false;
+            btn_CreateQuestion.Visible = btn_ManageQuestion.Visible = false;
         }
 
         protected void ddl_EditQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
             gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
-            
             gv_EditQuestion.DataBind();
-            
+            btn_CreateQuestion.Visible = btn_ManageQuestion.Visible = true;
+
         }
         protected void DetailsView1_PageIndexChanging1(object sender, DetailsViewPageEventArgs e)
         {
@@ -141,10 +142,7 @@ namespace WebApplication1.Admin
             ddl_EditQuestion.Enabled = true;
         }
 
-        protected void ddl_course_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void btn_update_Click(object sender, EventArgs e)
         {
@@ -189,9 +187,6 @@ namespace WebApplication1.Admin
             {
                 lbl_status.Text = "Successfully Deleted";
                 txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
-                //ddl_course.SelectedIndex = 0;
-                //ddl_qByCourse.SelectedIndex = 0;
-                //ddl_qByCourse.Enabled = false;
                 pl_mcq.Visible = false;
                 pl_true.Visible = false;
 
@@ -205,8 +200,7 @@ namespace WebApplication1.Admin
 
         protected void btn_cancel0_Click(object sender, EventArgs e)
         {
-            //ddl_course.SelectedIndex = 0;
-            //ddl_qByCourse.SelectedIndex = 0;
+            
             txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
             txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
             pl_mcq.Visible = false;
@@ -215,7 +209,7 @@ namespace WebApplication1.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Label13.Text = gv_EditQuestion.Rows[0].Cells[1].Text.ToString();
+            Label13.Text = (gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text.ToString();
             //Label13.Text = txt.Text;
         }
     }
