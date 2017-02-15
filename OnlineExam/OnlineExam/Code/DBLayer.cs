@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using OnlineExam.Code;
-using System.IO;
 
 namespace OnlineExam
 {
@@ -17,7 +13,7 @@ namespace OnlineExam
             DataTable dataTable = new DataTable();
             try
             {
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["onlineTemp"].ConnectionString);
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["online"].ConnectionString);
                 SqlCommand command = new SqlCommand(stored, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 if (pars != null)
