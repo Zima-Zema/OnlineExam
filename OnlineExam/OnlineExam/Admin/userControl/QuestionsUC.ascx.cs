@@ -14,6 +14,7 @@ namespace WebApplication1.Admin
             {
                 FullDDLWithCourses();
                 btn_cancel.Visible = false;
+                
             }
         }
 
@@ -28,14 +29,45 @@ namespace WebApplication1.Admin
             ddl_EditQuestion.Items.Insert(0, m);
             pl_createQ.Visible = false;
             pl_manage.Visible = false;
-            btn_CreateQuestion.Visible = btn_ManageQuestion.Visible = false;
+            btn_ManageQuestion.Visible = false;
+        }
+
+        private void FillMcqModel()
+        {
+            ddl_mcqModel.Items.Clear();
+            ListItem a = new ListItem("A", "A");
+            ListItem b = new ListItem("B", "B");
+            ListItem c = new ListItem("C", "C");
+            ListItem d = new ListItem("D", "D");
+            ddl_mcqModel.Items.Insert(0, a);
+            ddl_mcqModel.Items.Insert(1, b);
+            ddl_mcqModel.Items.Insert(2, c);
+            ddl_mcqModel.Items.Insert(3, d);
+            ddl_mcqModel.DataBind();
+        }
+        private void FillTfModel()
+        {
+            ddl_tfModel.Items.Clear();
+            ListItem t = new ListItem("True", "T");
+            ListItem f = new ListItem("False", "F");
+            ddl_tfModel.Items.Insert(0, t);
+            ddl_tfModel.Items.Insert(1, f);
+            ddl_tfModel.DataBind();
         }
 
         protected void ddl_EditQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
-            gv_EditQuestion.DataBind();
-            btn_CreateQuestion.Visible = btn_ManageQuestion.Visible = true;
+            if (ddl_EditQuestion.SelectedIndex!=0)
+            {
+                gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
+                gv_EditQuestion.DataBind();
+                btn_ManageQuestion.Visible = true;
+            }
+            else
+            {
+                btn_ManageQuestion.Visible = false;
+            }
+           
 
         }
         protected void DetailsView1_PageIndexChanging1(object sender, DetailsViewPageEventArgs e)
@@ -85,12 +117,13 @@ namespace WebApplication1.Admin
             pl_createQ.Visible = false;
             btn_cancel.Visible = true;
             ddl_EditQuestion.Enabled = false;
-            //ddl_EditQuestion.SelectedIndex = 0;
+           
            
             FillType();
-
+            FillMcqModel();
+            FillTfModel();
             DataTable dataTable = new DataTable();
-            dataTable = Questions.GetMcqQuestionByID(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()));
+            dataTable = Questions.GetMcqQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
             if (dataTable.Rows.Count > 1)
             {
                 pl_mcq.Visible = true;
@@ -108,7 +141,7 @@ namespace WebApplication1.Admin
             {
                 pl_true.Visible = true;
                 pl_mcq.Visible = false;
-                dataTable = Questions.GetQuestionByID(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()));
+                dataTable = Questions.GetQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
                 txt_tfHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
                 ddl_tfType.SelectedIndex = 1;
                 txt_tfGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
@@ -137,20 +170,18 @@ namespace WebApplication1.Admin
 
         protected void btn_cancel_Click(object sender, EventArgs e)
         {
-            pl_createQ.Visible = false;
+            //pl_createQ.Visible = false;
             pl_manage.Visible = false;
             ddl_EditQuestion.Enabled = true;
         }
-
         
-
         protected void btn_update_Click(object sender, EventArgs e)
         {
             DataTable dataTable = new DataTable();
             dataTable = Questions.GetMcqQuestionByID(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()));
             if (dataTable.Rows.Count > 1)
             {
-                int rows = Questions.Edit_MCQ(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()), ddl_mcqType.SelectedValue, int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_EditQuestion.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
+                int rows = Questions.Edit_MCQ(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_mcqType.SelectedValue, int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_EditQuestion.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
                 if (rows > 0)
                 {
                     lbl_status.Text = "Successfully Updated";
@@ -165,7 +196,7 @@ namespace WebApplication1.Admin
             }
             else
             {
-                int rows = Questions.Edit_Question(int.Parse(ddl_EditQuestion.SelectedValue), ddl_tfType.SelectedValue, int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_EditQuestion.SelectedValue));
+                int rows = Questions.Edit_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_tfType.SelectedValue, int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_EditQuestion.SelectedValue));
                 if (rows > 0)
                 {
                     lbl_status.Text = "Successfully Updated";
@@ -182,7 +213,7 @@ namespace WebApplication1.Admin
 
         protected void btn_delete_Click(object sender, EventArgs e)
         {
-            int rows = Questions.Remove_Question(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()));
+            int rows = Questions.Remove_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
             if (rows > 0)
             {
                 lbl_status.Text = "Successfully Deleted";
@@ -205,12 +236,9 @@ namespace WebApplication1.Admin
             txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
             pl_mcq.Visible = false;
             pl_true.Visible = false;
+            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Label13.Text = (gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text.ToString();
-            //Label13.Text = txt.Text;
-        }
+       
     }
 }

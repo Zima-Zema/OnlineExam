@@ -225,6 +225,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\defaulttheme.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\footer.css" />
+    <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
     <Content Include="Display_topics_per_Course.aspx" />
     <Content Include="Exam_and_students_by_date.aspx" />
@@ -239,7 +246,16 @@
     <Content Include="Admin\admin.Master" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="AdminMaster.master" />
+    <Content Include="Images\ad.jpg" />
+    <Content Include="Images\background.jpg" />
+    <Content Include="Images\i.jpg" />
+    <Content Include="Images\slider_image_1.jpg" />
+    <Content Include="Images\slider_image_2.jpg" />
+    <Content Include="Images\w1.jpg" />
     <Content Include="instructor.Master" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InstructorForm.aspx" />
     <Content Include="Instructors_per_course.aspx" />
@@ -284,6 +300,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Specific_student_information.aspx" />
+    <Content Include="StudentForm.aspx" />
     <Content Include="Students_have_corrective_exam_by_course.aspx" />
     <Content Include="Students_have_corrective_exam_by_dept.aspx" />
     <Content Include="Students_results.aspx" />
@@ -753,6 +770,13 @@
       <DependentUpon>SStudentsMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="StudentForm.aspx.cs">
+      <DependentUpon>StudentForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForm.aspx.designer.cs">
+      <DependentUpon>StudentForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Students_have_corrective_exam_by_course.aspx.cs">
       <DependentUpon>Students_have_corrective_exam_by_course.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -805,6 +829,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="JS\" />
     <Folder Include="Student\" />
   </ItemGroup>
   <PropertyGroup>
