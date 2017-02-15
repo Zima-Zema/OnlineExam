@@ -56,7 +56,7 @@ namespace OnlineExam.Code
 
         public static DataTable GetStudentByuserName(string user)
         {
-            string stored = "Get_Student_Username";
+            string stored = "Get_Student_By_userName";
             SqlParameter[] param = { new SqlParameter("@user", user) };
             return DBLayer.SelectData(stored, param);
         }
