@@ -13,7 +13,7 @@ namespace OnlineExam
             DataTable dataTable = new DataTable();
             try
             {
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["online"].ConnectionString);
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["onlineTemp"].ConnectionString);
                 SqlCommand command = new SqlCommand(stored, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 if (pars != null)
