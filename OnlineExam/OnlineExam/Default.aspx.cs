@@ -11,8 +11,8 @@ namespace OnlineExam
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["username"] = null;
-            Session["type"] = null;
+            //Session["username"] = null;
+            //Session["type"] = null;
         }
     }
 }
