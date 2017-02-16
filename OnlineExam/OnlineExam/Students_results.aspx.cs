@@ -24,7 +24,7 @@ namespace OnlineExam
 
         protected void gvStudentResult_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

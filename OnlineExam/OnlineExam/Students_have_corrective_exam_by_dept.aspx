@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style1 {
-            width: 142px;
+            width: 164px;
         }
         .auto-style2 {
             width: 93px;
@@ -16,7 +16,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">
-                        <asp:Label ID="Label2" runat="server" Text="Enter Department No"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Enter Department Name:"></asp:Label>
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlDept" runat="server" AutoPostBack="True" CssClass="col-xs-offset-0" OnSelectedIndexChanged="ddlDept_SelectedIndexChanged">

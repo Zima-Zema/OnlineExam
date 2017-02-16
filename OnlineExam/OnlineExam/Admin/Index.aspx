@@ -49,8 +49,8 @@
         &nbsp;</form>
         <hr />
         <h3>Content</h3>
-        <ul class="toggle">
-            <li class="auto-style1">
+        <ul class="toggle" style="list-style-type: none;">
+            <li class="auto-style1" >
                 <asp:Button runat="server" Text="Students Info." href="#" Width="200px" ID="student_btn" CssClass="btn btn-default" OnClick="student_btn_Click"></asp:Button></li>
             <li class="auto-style1">
                 <asp:Button runat="server" Text="Instructors Info." href="#" Width="200px" ID="ins_btn" CssClass="btn btn-default" OnClick="ins_btn_Click"></asp:Button></li>

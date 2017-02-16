@@ -7,73 +7,55 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Admin.Admin_UC {
+namespace WebApplication1.Student.Stu_UC {
     
     
-    public partial class adminprofile {
+    public partial class stu_exams {
         
         /// <summary>
-        /// pl_show control.
+        /// pl_stud_Exam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pl_show;
+        protected global::System.Web.UI.WebControls.Panel pl_stud_Exam;
         
         /// <summary>
-        /// lbl_username control.
+        /// gv_StudentExam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_username;
+        protected global::System.Web.UI.WebControls.GridView gv_StudentExam;
         
         /// <summary>
-        /// lbl_fname control.
+        /// lbl_examstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fname;
+        protected global::System.Web.UI.WebControls.Label lbl_examstatus;
         
         /// <summary>
-        /// lbl_lname control.
+        /// dv_exam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_lname;
+        protected global::System.Web.UI.WebControls.DetailsView dv_exam;
         
         /// <summary>
-        /// lbl_salary control.
+        /// btn_Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_salary;
-        
-        /// <summary>
-        /// lbl_enterdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_enterdate;
-        
-        /// <summary>
-        /// btn_chPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_chPass;
+        protected global::System.Web.UI.WebControls.Button btn_Submit;
         
         /// <summary>
         /// lbl_status control.
@@ -85,21 +67,39 @@ namespace WebApplication1.Admin.Admin_UC {
         protected global::System.Web.UI.WebControls.Label lbl_status;
         
         /// <summary>
-        /// pl_change control.
+        /// pl_tfans control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pl_change;
+        protected global::System.Web.UI.WebControls.Panel pl_tfans;
         
         /// <summary>
-        /// chang_password1 control.
+        /// ddl_tfans control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebApplication1.Admin.Admin_UC.chang_password chang_password1;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_tfans;
+        
+        /// <summary>
+        /// pl_mcqans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pl_mcqans;
+        
+        /// <summary>
+        /// ddl_Mcqans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Mcqans;
     }
 }

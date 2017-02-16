@@ -7,7 +7,7 @@ using System.Web;
 
 namespace OnlineExam.Code
 {
-    public class Student
+    public class StudentsBL
     {
         public static DataTable GetStusent()
         {

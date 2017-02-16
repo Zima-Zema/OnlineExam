@@ -13,7 +13,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style1">
-                        <asp:Label ID="Label1" runat="server" Text="Enter Student ID that you Want"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Enter Student Name that you Want"></asp:Label>
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlstudent" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstudent_SelectedIndexChanged">

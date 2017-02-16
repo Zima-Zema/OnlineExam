@@ -48,7 +48,9 @@
             <td class="auto-style7">
                 <asp:Button ID="btn_chPass" runat="server" CssClass="btn btn-primary" OnClick="btn_chPass_Click" Text="Change Password" />
             </td>
-            <td class="auto-style8">&nbsp;</td>
+            <td class="auto-style8">
+                <asp:Label ID="lbl_status" runat="server"></asp:Label>
+            </td>
         </tr>
     </table>
 </asp:Panel>

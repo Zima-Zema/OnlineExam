@@ -17,7 +17,7 @@
                 <tr>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style2">
-                        <asp:Label ID="Label1" runat="server" Text="Select Course No"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Select Course Name:"></asp:Label>
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlcourse" runat="server" AutoPostBack="True" CssClass="col-xs-offset-0" OnSelectedIndexChanged="ddlcourse_SelectedIndexChanged">

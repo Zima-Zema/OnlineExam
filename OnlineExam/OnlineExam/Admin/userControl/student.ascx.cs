@@ -23,7 +23,7 @@ namespace WebApplication1
         {
             ddl_student.Items.Clear();
             
-            ddl_student.DataSource = Student.GetStusent();
+            ddl_student.DataSource = StudentsBL.GetStusent();
             ddl_student.DataTextField = "St-Fname";
             ddl_student.DataValueField = "St-ID";
             ddl_student.DataBind();
@@ -43,7 +43,7 @@ namespace WebApplication1
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dataTable = new DataTable();
-            dataTable = Student.GetStudentByID(int.Parse(ddl_student.SelectedValue));
+            dataTable = StudentsBL.GetStudentByID(int.Parse(ddl_student.SelectedValue));
             txt_fname.Text = dataTable.Rows[0]["St-Fname"].ToString();
             txt_lname.Text = dataTable.Rows[0]["St-Lname"].ToString();
             txt_stdID.Text = dataTable.Rows[0]["St-ID"].ToString();
@@ -68,7 +68,7 @@ namespace WebApplication1
             {
                 if (!String.IsNullOrWhiteSpace(txt_fname.Text)&&ddl_dept.SelectedIndex!=0)
                 {
-                    int rows = Student.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                    int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
                     if (rows > 0)
                     {
                         lbl.Text = "Successfully Added :)";
@@ -103,7 +103,7 @@ namespace WebApplication1
             {
                 if (ddl_student.SelectedIndex != 0)
                 {
-                    int rows = Student.Remove_Student(int.Parse(ddl_student.SelectedValue));
+                    int rows = StudentsBL.Remove_Student(int.Parse(ddl_student.SelectedValue));
                     if (rows > 0)
                     {
                         lbl.Text = "Successfully Deleted :)";
@@ -135,7 +135,7 @@ namespace WebApplication1
        {
             try
             {
-                int rows = Student.Edit_Student(int.Parse(ddl_student.SelectedValue), txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                int rows = StudentsBL.Edit_Student(int.Parse(ddl_student.SelectedValue), txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
                 if (rows > 0)
                 {
                     lbl.Text = "Successfully Updated :)";

@@ -17,7 +17,7 @@ namespace OnlineExam
             {
                 ddlDept.DataSource = BusinessLayer.Display_Department_by_Idand_Name();
                 ddlDept.DataValueField = "Dept_Id";
-                ddlDept.DataTextField = "Dept_Id";
+                ddlDept.DataTextField = "Dept_Name";
                 ddlDept.DataBind();
 
 

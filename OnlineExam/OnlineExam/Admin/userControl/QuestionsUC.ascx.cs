@@ -2,6 +2,7 @@
 using OnlineExam.Code;
 using System;
 using System.Data;
+using System.IO;
 using System.Web.UI.WebControls;
 
 namespace WebApplication1.Admin
@@ -20,16 +21,27 @@ namespace WebApplication1.Admin
 
         private void FullDDLWithCourses()
         {
-            ddl_EditQuestion.Items.Clear();
-            ddl_EditQuestion.DataSource = CourseBL.GetAllCourses();
-            ddl_EditQuestion.DataTextField = "Crs-Name";
-            ddl_EditQuestion.DataValueField = "Crs-Id";
-            ddl_EditQuestion.DataBind();
-            ListItem m = new ListItem("none", "0");
-            ddl_EditQuestion.Items.Insert(0, m);
-            pl_createQ.Visible = false;
-            pl_manage.Visible = false;
-            btn_ManageQuestion.Visible = false;
+            try
+            {
+                ddl_EditQuestion.Items.Clear();
+                ddl_EditQuestion.DataSource = CourseBL.GetAllCourses();
+                ddl_EditQuestion.DataTextField = "Crs-Name";
+                ddl_EditQuestion.DataValueField = "Crs-Id";
+                ddl_EditQuestion.DataBind();
+                ListItem m = new ListItem("none", "0");
+                ddl_EditQuestion.Items.Insert(0, m);
+                pl_createQ.Visible = false;
+                pl_manage.Visible = false;
+                btn_ManageQuestion.Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_EditQuestion_SelectedIndexChanged");
+
+            }
+            
         }
 
         private void FillMcqModel()
@@ -57,48 +69,80 @@ namespace WebApplication1.Admin
 
         protected void ddl_EditQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddl_EditQuestion.SelectedIndex!=0)
+            try
             {
-                gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
-                gv_EditQuestion.DataBind();
-                btn_ManageQuestion.Visible = true;
+                if (ddl_EditQuestion.SelectedIndex != 0)
+                {
+                    gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
+                    gv_EditQuestion.DataBind();
+                    btn_ManageQuestion.Visible = true;
+                }
+                else
+                {
+                    btn_ManageQuestion.Visible = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                btn_ManageQuestion.Visible = false;
+
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_EditQuestion_SelectedIndexChanged");
+
             }
+            
            
 
         }
         protected void DetailsView1_PageIndexChanging1(object sender, DetailsViewPageEventArgs e)
         {
-            gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
-            gv_EditQuestion.PageIndex = e.NewPageIndex;
-            gv_EditQuestion.ChangeMode(DetailsViewMode.ReadOnly);
-            gv_EditQuestion.DataBind();
+            try
+            {
+                gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
+                gv_EditQuestion.PageIndex = e.NewPageIndex;
+                gv_EditQuestion.ChangeMode(DetailsViewMode.ReadOnly);
+                gv_EditQuestion.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "DetailsView1_ModeChanging");
+
+            }
+            
         }
 
         protected void DetailsView1_ModeChanging(object sender, DetailsViewModeEventArgs e)
         {
-          
-            gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
-            if (e.NewMode == DetailsViewMode.Edit)
+            try
             {
-                gv_EditQuestion.ChangeMode(DetailsViewMode.Edit);
+                gv_EditQuestion.DataSource = Questions.GetQuestionByCourse(int.Parse(ddl_EditQuestion.SelectedValue));
+                if (e.NewMode == DetailsViewMode.Edit)
+                {
+                    gv_EditQuestion.ChangeMode(DetailsViewMode.Edit);
+                }
+                else if (e.NewMode == DetailsViewMode.Insert)
+                {
+                    gv_EditQuestion.ChangeMode(DetailsViewMode.Insert);
+                }
+                else if (e.CancelingEdit)
+                {
+                    gv_EditQuestion.ChangeMode(DetailsViewMode.ReadOnly);
+                }
+                else if (e.Cancel)
+                {
+                    gv_EditQuestion.ChangeMode(DetailsViewMode.ReadOnly);
+                }
+                gv_EditQuestion.DataBind();
             }
-            else if(e.NewMode == DetailsViewMode.Insert)
+            catch (Exception ex)
             {
-                gv_EditQuestion.ChangeMode(DetailsViewMode.Insert);
+
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "DetailsView1_ModeChanging");
+
             }
-            else if(e.CancelingEdit)
-            {
-               gv_EditQuestion.ChangeMode( DetailsViewMode.ReadOnly);
-            }
-            else if(e.Cancel)
-            {
-                gv_EditQuestion.ChangeMode(DetailsViewMode.ReadOnly);
-            }
-            gv_EditQuestion.DataBind();
+
+            
         }
 
         protected void btn_CreateQuestion_Click(object sender, EventArgs e)
@@ -122,32 +166,44 @@ namespace WebApplication1.Admin
             FillType();
             FillMcqModel();
             FillTfModel();
-            DataTable dataTable = new DataTable();
-            dataTable = Questions.GetMcqQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
-            if (dataTable.Rows.Count > 1)
+
+            try
             {
-                pl_mcq.Visible = true;
-                pl_true.Visible = false;
-                txt_mcqHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
-                ddl_mcqType.SelectedIndex = 0;
-                txt_mcqGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
-                txt_ansA.Text = dataTable.Rows[0]["Choice-Text"].ToString();
-                txt_ansB.Text = dataTable.Rows[1]["Choice-Text"].ToString();
-                txt_ansC.Text = dataTable.Rows[2]["Choice-Text"].ToString();
-                txt_ansD.Text = dataTable.Rows[3]["Choice-Text"].ToString();
-                ddl_mcqModel.SelectedValue = dataTable.Rows[0]["QModelAnswer"].ToString();
+                DataTable dataTable = new DataTable();
+                dataTable = Questions.GetMcqQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
+                if (dataTable.Rows.Count > 1)
+                {
+                    pl_mcq.Visible = true;
+                    pl_true.Visible = false;
+                    txt_mcqHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
+                    ddl_mcqType.SelectedIndex = 0;
+                    txt_mcqGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
+                    txt_ansA.Text = dataTable.Rows[0]["Choice-Text"].ToString();
+                    txt_ansB.Text = dataTable.Rows[1]["Choice-Text"].ToString();
+                    txt_ansC.Text = dataTable.Rows[2]["Choice-Text"].ToString();
+                    txt_ansD.Text = dataTable.Rows[3]["Choice-Text"].ToString();
+                    ddl_mcqModel.SelectedValue = dataTable.Rows[0]["QModelAnswer"].ToString();
+                }
+                else
+                {
+                    pl_true.Visible = true;
+                    pl_mcq.Visible = false;
+                    
+                    dataTable = Questions.GetQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
+                    txt_tfHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
+                    ddl_tfType.SelectedIndex = 1;
+                    txt_tfGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
+                    ddl_tfModel.SelectedValue = dataTable.Rows[0]["QModelAnswer"].ToString();
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                pl_true.Visible = true;
-                pl_mcq.Visible = false;
-                dataTable = Questions.GetQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
-                txt_tfHead.Text = dataTable.Rows[0]["Question-Head"].ToString();
-                ddl_tfType.SelectedIndex = 1;
-                txt_tfGrade.Text = dataTable.Rows[0]["Quesion-Grade"].ToString();
-                ddl_tfModel.SelectedValue = dataTable.Rows[0]["QModelAnswer"].ToString();
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_ManageQuestion_Click");
 
             }
+
 
         }
 
@@ -157,14 +213,10 @@ namespace WebApplication1.Admin
             ListItem none = new ListItem("none", "NULL");
             ListItem mcq = new ListItem("MCQ", "MCQ");
             ListItem tf = new ListItem("TF", "TF");
-            //ddl_mcqType.Items.Insert(0, none);
             ddl_mcqType.Items.Insert(0, mcq);
             ddl_mcqType.Items.Insert(1, tf);
-
-            //ddl_tfType.Items.Insert(0, none);
             ddl_tfType.Items.Insert(0, mcq);
             ddl_tfType.Items.Insert(1, tf);
-
             ddl_tfType.DataBind();
         }
 
@@ -177,55 +229,78 @@ namespace WebApplication1.Admin
         
         protected void btn_update_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable = Questions.GetMcqQuestionByID(int.Parse(gv_EditQuestion.Rows[0].Cells[1].Controls[0].ToString()));
-            if (dataTable.Rows.Count > 1)
+            try
             {
-                int rows = Questions.Edit_MCQ(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_mcqType.SelectedValue, int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_EditQuestion.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
-                if (rows > 0)
+                DataTable dataTable = new DataTable();
+                dataTable = Questions.GetMcqQuestionByID(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
+                if (dataTable.Rows.Count > 1)
                 {
-                    lbl_status.Text = "Successfully Updated";
-                    txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
-                    
+                    int rows = Questions.Edit_MCQ(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_mcqType.SelectedValue, int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_EditQuestion.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
+                    if (rows > 0)
+                    {
+                        lbl_status0.Text = "Successfully Updated";
+                        txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
 
+
+                    }
+                    else
+                    {
+                        lbl_status0.Text = "Update Failed";
+                    }
                 }
                 else
                 {
-                    lbl_status.Text = "Update Failed";
-                }
-            }
-            else
-            {
-                int rows = Questions.Edit_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_tfType.SelectedValue, int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_EditQuestion.SelectedValue));
-                if (rows > 0)
-                {
-                    lbl_status.Text = "Successfully Updated";
-                    txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
-                    
+                    int rows = Questions.Edit_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text), ddl_tfType.SelectedValue, int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_EditQuestion.SelectedValue));
+                    if (rows > 0)
+                    {
+                        lbl_status.Text = "Successfully Updated";
+                        txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
 
+
+                    }
+                    else
+                    {
+                        lbl_status0.Text = "Update Failed";
+                    }
                 }
-                else
-                {
-                    lbl_status.Text = "Update Failed";
-                }
+
             }
+            catch (Exception ex)
+            {
+
+                lbl_status0.Text = "Somthing Went Wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_update_Click");
+
+
+            }
+
         }
 
         protected void btn_delete_Click(object sender, EventArgs e)
         {
-            int rows = Questions.Remove_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
-            if (rows > 0)
+            try
             {
-                lbl_status.Text = "Successfully Deleted";
-                txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
-                pl_mcq.Visible = false;
-                pl_true.Visible = false;
+                int rows = Questions.Remove_Question(int.Parse((gv_EditQuestion.Rows[0].FindControl("Label2") as Label).Text));
+                if (rows > 0)
+                {
+                    lbl_status.Text = "Successfully Deleted";
+                    txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
+                    pl_mcq.Visible = false;
+                    pl_true.Visible = false;
+
+                }
+                else
+                {
+                    lbl_status.Text = "Delete Failed";
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_status0.Text = "Somthing Went Wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_delete_Click");
 
             }
-            else
-            {
-                lbl_status.Text = "Delete Failed";
-            }
+
 
         }
 

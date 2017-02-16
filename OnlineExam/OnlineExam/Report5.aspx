@@ -20,7 +20,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Enter Exam No:"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="Label2" runat="server" Text="Enter Student No:"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Enter Student Name:"></asp:Label>
                 </td>
             </tr>
             <tr>

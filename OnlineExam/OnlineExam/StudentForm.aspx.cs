@@ -23,7 +23,7 @@ namespace OnlineExam
                     {
 
                         DataTable dt = new DataTable();
-                        dt = Student.GetStudentByuserName(Session["username"].ToString());
+                        dt = StudentsBL.GetStudentByuserName(Session["username"].ToString());
                         Session["id"] = dt.Rows[0]["St-ID"].ToString();
 
                     }

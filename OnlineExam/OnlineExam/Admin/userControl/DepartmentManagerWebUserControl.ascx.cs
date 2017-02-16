@@ -1,6 +1,7 @@
 ﻿using OnlineExam.Code;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,6 +24,7 @@ namespace WebApplication1
 
         private void FullDDLWithDepartments()
         {
+
             ddl_Dept.Items.Clear();
             ddl_Dept.DataSource = DeptManger.GetAllDept();
             ddl_Dept.DataTextField = "Dept_Name";
@@ -33,23 +35,34 @@ namespace WebApplication1
         }
         protected void ddl_Dept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gv_DeptManger.DataSource = DeptManger.GetDeptMangerById(int.Parse(ddl_Dept.SelectedValue));
-            gv_DeptManger.DataBind();
-
-
-            if (gv_DeptManger.Rows.Count == 0)
+            try
             {
+                gv_DeptManger.DataSource = DeptManger.GetDeptMangerById(int.Parse(ddl_Dept.SelectedValue));
+                gv_DeptManger.DataBind();
 
-                lbl_status.Text = " This Department Not have Manager Yet";
+
+                if (gv_DeptManger.Rows.Count == 0)
+                {
+
+                    lbl_status.Text = " This Department Not have Manager Yet";
+                    lbl_status.Visible = true;
+
+                }
+                else
+                {
+
+                    lbl_status.Visible = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
                 lbl_status.Visible = true;
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_Dept_SelectedIndexChanged");
 
             }
-            else
-            {
-
-                lbl_status.Visible = false;
-
-            }
+            
 
         
 

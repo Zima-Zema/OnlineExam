@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using OnlineExam.Code;
+using System.IO;
 
 namespace WebApplication1.Admin.Admin_UC
 {
@@ -19,29 +20,40 @@ namespace WebApplication1.Admin.Admin_UC
 
         protected void btn_changPass_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            try
             {
-                DataTable dataTable = new DataTable();
-                //dt = AdminBL.checkPassword(Session["username"].ToString(), TextBox1.Text);
-                dataTable = Admins.GetAdmin(Session["username"].ToString(), txt_currentPass.Text);
-                if (dataTable.Rows.Count > 0)
+                if (Page.IsValid)
                 {
-                    if (txt_newPass.Text == txt_confirmPass.Text && txt_newPass.Text != "" && txt_confirmPass.Text != "")
+                    DataTable dataTable = new DataTable();
+                    dataTable = Admins.GetAdmin(Session["username"].ToString(), txt_currentPass.Text);
+                    if (dataTable.Rows.Count > 0)
                     {
+                        if (txt_newPass.Text == txt_confirmPass.Text && txt_newPass.Text != "" && txt_confirmPass.Text != "")
+                        {
 
-                        Admins.ChangPass(int.Parse(Session["id"].ToString()), txt_newPass.Text);
-                        lbl_status.Text = "Password Changed sucessfully";
+                            Admins.ChangPass(int.Parse(Session["id"].ToString()), txt_newPass.Text);
+                            lbl_status.Text = "Password Changed sucessfully";
+                        }
+                        else
+                        {
+                            lbl_status.Text = "Confirm Password Doesn't Match";
+                        }
                     }
                     else
                     {
-                        lbl_status.Text = "Confirm Password Doesn't Match";
+                        lbl_status.Text = "Old Password Incorrect";
                     }
                 }
-                else
-                {
-                    lbl_status.Text = "Old Password Incorrect";
-                }
             }
+            catch (Exception ex)
+            {
+
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_EditQuestion_SelectedIndexChanged");
+
+            }
+
+
         }     
     }
 }

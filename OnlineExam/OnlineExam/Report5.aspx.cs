@@ -15,7 +15,7 @@ namespace OnlineExam
             {
                 ddlStudent.DataSource = Reports.DisplayStudentByID();
                 ddlStudent.DataValueField = "St-ID";
-                ddlStudent.DataTextField = "St-ID";
+                ddlStudent.DataTextField = "St-Fname";
                 ddlStudent.DataBind();
                 ddlExam.DataSource = Reports.DisplayExamByID();
                 ddlExam.DataValueField = "Exam-ID";

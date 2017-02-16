@@ -104,7 +104,7 @@
             <asp:Label ID="lbl_hdate" runat="server" Text="Manager_Hiredate"></asp:Label>
         </td>
         <td class="auto-style3" colspan="2">
-            <asp:TextBox ID="txt_hireDate" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txt_hireDate" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
         </td>
         <td class="auto-style4">&nbsp;</td>
         <td>&nbsp;</td>

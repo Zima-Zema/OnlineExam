@@ -16,7 +16,7 @@ namespace OnlineExam
             {
                 ddlinstructor.DataSource = Reports.DisplayInstructorByID();
                 ddlinstructor.DataValueField = "Ins-ID";
-                ddlinstructor.DataTextField = "Ins-ID";
+                ddlinstructor.DataTextField = "Ins-Name";
                 ddlinstructor.DataBind();
                 /*
                 DataTable dt = Reports.Report33(int.Parse(ddlinstructor.SelectedValue));

@@ -234,6 +234,7 @@
     <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
     <Content Include="Display_topics_per_Course.aspx" />
+    <Content Include="error.aspx" />
     <Content Include="Exam_and_students_by_date.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -304,6 +305,7 @@
     <Content Include="Students_have_corrective_exam_by_course.aspx" />
     <Content Include="Students_have_corrective_exam_by_dept.aspx" />
     <Content Include="Students_results.aspx" />
+    <Content Include="Student\stu_exams.ascx" />
     <Content Include="Student_courses.aspx" />
     <Content Include="Student_exams_by_student_id.aspx" />
     <Content Include="Student_exam_answer_model_answer.aspx" />
@@ -629,7 +631,7 @@
     <Compile Include="Code\QuestionPerCourse.cs" />
     <Compile Include="Code\Reports.cs" />
     <Compile Include="Code\SalaryOfAllInstructorsBL.cs" />
-    <Compile Include="Code\Student.cs" />
+    <Compile Include="Code\StudentsBL.cs" />
     <Compile Include="Code\TopicBL.cs" />
     <Compile Include="Code\TopicsPerCourse.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -660,6 +662,13 @@
     </Compile>
     <Compile Include="Display_topics_per_Course.aspx.designer.cs">
       <DependentUpon>Display_topics_per_Course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Exam_and_students_by_date.aspx.cs">
       <DependentUpon>Exam_and_students_by_date.aspx</DependentUpon>
@@ -801,6 +810,13 @@
     <Compile Include="Students_results.aspx.designer.cs">
       <DependentUpon>Students_results.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\stu_exams.ascx.cs">
+      <DependentUpon>stu_exams.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\stu_exams.ascx.designer.cs">
+      <DependentUpon>stu_exams.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student_courses.aspx.cs">
       <DependentUpon>Student_courses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -833,7 +849,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="JS\" />
-    <Folder Include="Student\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -17,16 +17,27 @@ namespace OnlineExam.Admin.userControl
         }
         private void FillDDL()
         {
-            
-            ddl_course.Items.Clear();
-            ddl_course.DataSource = CourseBL.GetAllCourses();
-            ddl_course.DataTextField = "Crs-Name";
-            ddl_course.DataValueField = "Crs-ID";
-            ddl_course.DataBind();
-            ListItem c = new ListItem("none", "0");
-            ddl_course.Items.Insert(0, c);
-            pl_mcq.Visible = pl_true.Visible = false;
+            try
+            {
+                ddl_course.Items.Clear();
+                ddl_course.DataSource = CourseBL.GetAllCourses();
+                ddl_course.DataTextField = "Crs-Name";
+                ddl_course.DataValueField = "Crs-ID";
+                ddl_course.DataBind();
+                ListItem c = new ListItem("none", "0");
+                ddl_course.Items.Insert(0, c);
+                pl_mcq.Visible = pl_true.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+
+                lbl_status.Text = "Somting went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "FillDDL");
+
+            }
         }
+            
 
         private void FillMcqModel()
         {
@@ -99,7 +110,6 @@ namespace OnlineExam.Admin.userControl
         protected void btn_cancel_Click(object sender, EventArgs e)
         {
             ddl_course.SelectedIndex = 0;
-          
             txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
             txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
             pl_mcq.Visible = false;
