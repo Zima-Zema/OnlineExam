@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
+    <form id="form1" runat="server">
         <p>
             &nbsp;</p>
         <p>
@@ -84,6 +84,6 @@
                 </tr>
             </table>
         </p>
-    
+    </form>
 </asp:Content>
 

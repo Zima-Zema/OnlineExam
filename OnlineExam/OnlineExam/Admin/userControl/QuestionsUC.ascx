@@ -33,9 +33,11 @@
             </asp:DropDownList>
             </td>
         <td class="auto-style4">
-            &nbsp;</td>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </td>
         <td class="auto-style5" colspan="2">
-            &nbsp;</td>
+            <asp:Label ID="Label13" runat="server" Text="Label"></asp:Label>
+        </td>
         <td>
             &nbsp;</td>
     </tr>
