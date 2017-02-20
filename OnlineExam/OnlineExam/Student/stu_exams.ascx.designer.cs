@@ -76,24 +76,6 @@ namespace WebApplication1.Student.Stu_UC {
         protected global::System.Web.UI.WebControls.Label lbl_status;
         
         /// <summary>
-        /// pl_tfans control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pl_tfans;
-        
-        /// <summary>
-        /// ddl_tfans control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_tfans;
-        
-        /// <summary>
         /// pl_mcqans control.
         /// </summary>
         /// <remarks>
@@ -110,5 +92,23 @@ namespace WebApplication1.Student.Stu_UC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_Mcqans;
+        
+        /// <summary>
+        /// pl_tfans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pl_tfans;
+        
+        /// <summary>
+        /// ddl_tfans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_tfans;
     }
 }

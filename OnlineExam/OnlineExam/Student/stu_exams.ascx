@@ -1,17 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="stu_exams.ascx.cs" Inherits="WebApplication1.Student.Stu_UC.stu_exams" %>
 <style type="text/css">
     .auto-style1 {
-        height: 17px;
-    }
-    .auto-style2 {
-        width: 78px;
-    }
-    .auto-style3 {
-        width: 72%;
+        width: 706px;
     }
 </style>
-<asp:Panel ID="pl_stud_Exam" runat="server" Width="670px">
-    <asp:GridView ID="gv_StudentExam" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanging="gv_StudentExam_SelectedIndexChanging">
+&nbsp;
+<table style="width:100%;">
+    <tr>
+        <td colspan="2">
+<asp:Panel ID="pl_stud_Exam" runat="server" Width="1015px">
+    <asp:GridView ID="gv_StudentExam" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanging="gv_StudentExam_SelectedIndexChanging">
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -27,11 +25,12 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lbl_examstatus" runat="server"></asp:Label>
 </asp:Panel>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<table class="auto-style3">
+        </td>
+    </tr>
     <tr>
-        <td class="auto-style1" colspan="2">
+        <td colspan="2">
             <asp:Panel ID="pl_exam" runat="server">
-                <asp:DetailsView ID="dv_exam" runat="server" AllowPaging="True" AutoGenerateRows="False" Height="50px" OnPageIndexChanging="DetailsView1_PageIndexChanging1" Width="567px" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:DetailsView ID="dv_exam" runat="server" AllowPaging="True" AutoGenerateRows="False" Height="50px" OnPageIndexChanging="DetailsView1_PageIndexChanging1" Width="567px" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanged="dv_exam_PageIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                     <EditRowStyle BackColor="#2461BF" />
@@ -113,26 +112,28 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td class="auto-style1">
     <asp:Button ID="btn_Submit" runat="server" OnClick="Button1_Click" Text="Submit" Visible="False" CssClass="btn btn-primary" Width="142px" />
-        </td>
-        <td>
     <asp:Label ID="lbl_status" runat="server" Visible="False"></asp:Label>
         </td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style2">
-            <asp:Panel ID="pl_tfans" runat="server" Width="124px">
-                <asp:DropDownList ID="ddl_tfans" runat="server" CssClass="form-control">
-                </asp:DropDownList>
-            </asp:Panel>
-        </td>
-        <td>
+        <td class="auto-style1">
             <asp:Panel ID="pl_mcqans" runat="server">
-                <asp:DropDownList ID="ddl_Mcqans" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Mcqans_SelectedIndexChanged">
+                <asp:DropDownList ID="ddl_Mcqans" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Mcqans_SelectedIndexChanged" AutoPostBack="True">
                 </asp:DropDownList>
             </asp:Panel>
         </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="auto-style1">
+            <asp:Panel ID="pl_tfans" runat="server" Width="124px">
+                <asp:DropDownList ID="ddl_tfans" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddl_tfans_SelectedIndexChanged">
+                </asp:DropDownList>
+            </asp:Panel>
+        </td>
+        <td>&nbsp;</td>
     </tr>
 </table>
-&nbsp;

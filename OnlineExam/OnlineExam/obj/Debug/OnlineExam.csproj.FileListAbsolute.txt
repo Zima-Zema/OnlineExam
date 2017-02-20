@@ -234,4 +234,3 @@ C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.O
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.dll
 C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.pdb
-C:\Users\Abdelazim\Source\Repos\OnlineExam\OnlineExam\OnlineExam\obj\Debug\OnlineExam.csprojResolveAssemblyReference.cache

@@ -64,7 +64,7 @@ namespace OnlineExam.Code
         public static DataTable Get_Question_By_Exam(int ex_id)
         {
             string stored = "Get_Question_By_Exam";
-            SqlParameter[] param = { new SqlParameter("@@eid", ex_id) };
+            SqlParameter[] param = { new SqlParameter("@eid", ex_id) };
             return DBLayer.SelectData(stored, param);
         }
         public static int CorrectExam (int st_id,int E_id)
