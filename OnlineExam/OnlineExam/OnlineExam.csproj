@@ -233,6 +233,8 @@
     <Content Include="css\footer.css" />
     <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
+    <Content Include="Student_Student_courses.aspx" />
+    <Content Include="Student_Instructors_per_course.aspx" />
     <Content Include="Student_Display_topics_per_Course.aspx" />
     <Content Include="Display_topics_per_Course.aspx" />
     <Content Include="error.aspx" />
@@ -658,6 +660,20 @@
     </Compile>
     <Compile Include="DisplayStudentAnswersAfterGeneration.aspx.designer.cs">
       <DependentUpon>DisplayStudentAnswersAfterGeneration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Student_courses.aspx.cs">
+      <DependentUpon>Student_Student_courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_Student_courses.aspx.designer.cs">
+      <DependentUpon>Student_Student_courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Instructors_per_course.aspx.cs">
+      <DependentUpon>Student_Instructors_per_course.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_Instructors_per_course.aspx.designer.cs">
+      <DependentUpon>Student_Instructors_per_course.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_Display_topics_per_Course.aspx.cs">
       <DependentUpon>Student_Display_topics_per_Course.aspx</DependentUpon>

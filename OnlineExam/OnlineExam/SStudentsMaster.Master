@@ -55,8 +55,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses<span class="caret"></span></a>
 		  
           <ul class="dropdown-menu">
-            <li><a href="Instructors_per_course.aspx">Course Instructors</a></li>
-            <li><a href="Student_courses.aspx">Students Courses</a></li>	
+            <li><a href="Student_Instructors_per_course.aspx">Course Instructors</a></li>
+            <li><a href="Student_Student_courses.aspx">Students Courses</a></li>	
       </ul>
               </li>
 		        
