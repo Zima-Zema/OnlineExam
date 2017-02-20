@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using OnlineExam.Code;
+using System.IO;
+
 namespace OnlineExam
 {
     public partial class Report1 : System.Web.UI.Page
@@ -16,13 +19,22 @@ namespace OnlineExam
         {
             if (!Page.IsPostBack)
             {
+                try
+                {
+                    ddldept.DataSource = BusinessLayer.Display_course_by_Idand_Name();
+                    ddldept.DataTextField = "Dept_Name";
+                    ddldept.DataValueField = "Dept_Id";
+                    ListItem li = new ListItem("none", "0");
+                    ddldept.Items.Insert(0, li);
+                    ddldept.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    lblresult.Text = "Something Went Wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Page_Load");
 
-                ddldept.DataSource = BusinessLayer.Display_course_by_Idand_Name();
-                ddldept.DataTextField = "Dept_Name";
-                ddldept.DataValueField = "Dept_Id";
-                ListItem li = new ListItem("none", "0");
-                ddldept.Items.Insert(0, li);
-                ddldept.DataBind();              
+                }
+
 
 
 

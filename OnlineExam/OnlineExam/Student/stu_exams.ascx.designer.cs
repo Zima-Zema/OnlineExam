@@ -40,6 +40,15 @@ namespace WebApplication1.Student.Stu_UC {
         protected global::System.Web.UI.WebControls.Label lbl_examstatus;
         
         /// <summary>
+        /// pl_exam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pl_exam;
+        
+        /// <summary>
         /// dv_exam control.
         /// </summary>
         /// <remarks>

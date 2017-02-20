@@ -42,12 +42,12 @@ namespace OnlineExam.Account
                         case "Instructor":
                             Session["username"] = txt_username.Text;
                             Session["type"] = "Instructor";
-                            Response.Redirect("http://localhost:23156/InstructorForm.aspx");
+                            Response.Redirect("~/InstructorForm.aspx");
                             break;
                         case "Student":
                             Session["username"] = txt_username.Text;
                             Session["type"] = "Student";
-                            Response.Redirect("http://localhost:23156/StudentForm.aspx");
+                            Response.Redirect("~/StudentForm.aspx");
                             break;
                         case "Admin":
                             Session["username"] = txt_username.Text;

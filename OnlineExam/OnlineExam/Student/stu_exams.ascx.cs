@@ -23,6 +23,7 @@ namespace WebApplication1.Student.Stu_UC
                 FilltfAnswer();
                 FillMcqModel();
                 pl_mcqans.Visible = pl_tfans.Visible = false;
+               
             }
         }
 
@@ -80,16 +81,7 @@ namespace WebApplication1.Student.Stu_UC
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gv_StudentExam.Visible = false;
-            lbl_examstatus.Visible = false;
-            pl_stud_Exam.Visible = true;
-            btn_Submit.Visible = true;
-            lbl_status.Visible = true;
-            int x = int.Parse(gv_StudentExam.SelectedRow.Cells[1].Text.ToString());
-            dv_exam.DataSource = ExamBL.Get_Question_By_Exam(int.Parse(gv_StudentExam.SelectedRow.Cells[1].Text.ToString()));
-            dv_exam.DataBind();
             
-            Session["ex_id"] = gv_StudentExam.SelectedRow.Cells[1].Text;
         }
 
         protected void DetailsView1_PageIndexChanging1(object sender, DetailsViewPageEventArgs e)
@@ -197,6 +189,21 @@ namespace WebApplication1.Student.Stu_UC
         protected void ddl_Mcqans_SelectedIndexChanged(object sender, EventArgs e)
         {
             ansDdictionary.Add(dv_exam.PageIndex, ddl_Mcqans.SelectedValue);
+        }
+
+        protected void gv_StudentExam_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            gv_StudentExam.Visible = false;
+            lbl_examstatus.Visible = false;
+            dv_exam.Visible = true;
+            pl_exam.Visible = true;
+            btn_Submit.Visible = true;
+            lbl_status.Visible = true;
+            int x = int.Parse(gv_StudentExam.Rows[e.NewSelectedIndex].Cells[1].Text.ToString());
+            dv_exam.DataSource = ExamBL.Get_Question_By_Exam(int.Parse(gv_StudentExam.Rows[e.NewSelectedIndex].Cells[1].Text.ToString()));
+            dv_exam.DataBind();
+
+            Session["ex_id"] = gv_StudentExam.Rows[e.NewSelectedIndex].Cells[1].Text.ToString();
         }
     }
 }
