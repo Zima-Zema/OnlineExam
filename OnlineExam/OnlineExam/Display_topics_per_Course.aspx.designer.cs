@@ -31,30 +31,30 @@ namespace OnlineExam {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// ddlcourse control.
+        /// ddl_course control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlcourse;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_course;
         
         /// <summary>
-        /// gvDisplayTopic control.
+        /// gv_DisplayTopic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDisplayTopic;
+        protected global::System.Web.UI.WebControls.GridView gv_DisplayTopic;
         
         /// <summary>
-        /// lblresult control.
+        /// lbl_result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblresult;
+        protected global::System.Web.UI.WebControls.Label lbl_result;
     }
 }

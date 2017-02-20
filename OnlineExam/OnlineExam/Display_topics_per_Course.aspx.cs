@@ -9,15 +9,15 @@ namespace OnlineExam
 {
     public partial class Display_topics_per_Course : System.Web.UI.Page
     {
-        DataTable dt = new DataTable();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlcourse.DataSource = BusinessLayer.Display_course_by_Idand_Name();
-                ddlcourse.DataValueField = "Crs-ID";
-                ddlcourse.DataTextField = "Crs-Name";
-                ddlcourse.DataBind();
+                ddl_course.DataSource = BusinessLayer.Display_course_by_Idand_Name();
+                ddl_course.DataValueField = "Crs-ID";
+                ddl_course.DataTextField = "Crs-Name";
+                ddl_course.DataBind();
 
 
             }
@@ -25,17 +25,17 @@ namespace OnlineExam
 
         }
 
-        protected void ddlcourse_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddl_course_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                DataTable dt = Display.Get_Topics_By_Cource(int.Parse(ddlcourse.SelectedValue));
-                gvDisplayTopic.DataSource = dt;
-                gvDisplayTopic.DataBind();
+                DataTable dt = Display.Get_Topics_By_Cource(int.Parse(ddl_course.SelectedValue));
+                gv_DisplayTopic.DataSource = dt;
+                gv_DisplayTopic.DataBind();
             }
             catch
             {
-                lblresult.Text = "error in Course";
+                lbl_result.Text = "error in Course";
             }
         }
 

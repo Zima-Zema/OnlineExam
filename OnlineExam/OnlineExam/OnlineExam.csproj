@@ -233,6 +233,7 @@
     <Content Include="css\footer.css" />
     <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
+    <Content Include="Student_Display_topics_per_Course.aspx" />
     <Content Include="Display_topics_per_Course.aspx" />
     <Content Include="error.aspx" />
     <Content Include="Exam_and_students_by_date.aspx" />
@@ -260,6 +261,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InstructorForm.aspx" />
     <Content Include="Instructors_per_course.aspx" />
+    <Content Include="JS\Admin.js" />
+    <Content Include="JS\bootstrap.min.js" />
+    <Content Include="JS\instructor.js" />
+    <Content Include="JS\JavaScript.js" />
+    <Content Include="JS\jquery-1.12.4.min.js" />
     <Content Include="Questions_y_courses_without_model_answer.aspx" />
     <Content Include="Report1.aspx" />
     <Content Include="Report2.aspx" />
@@ -653,6 +659,13 @@
     <Compile Include="DisplayStudentAnswersAfterGeneration.aspx.designer.cs">
       <DependentUpon>DisplayStudentAnswersAfterGeneration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student_Display_topics_per_Course.aspx.cs">
+      <DependentUpon>Student_Display_topics_per_Course.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_Display_topics_per_Course.aspx.designer.cs">
+      <DependentUpon>Student_Display_topics_per_Course.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Display_topics_per_Course.aspx.cs">
       <DependentUpon>Display_topics_per_Course.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -845,7 +858,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="JS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

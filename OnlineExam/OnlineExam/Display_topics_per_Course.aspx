@@ -13,7 +13,7 @@
                         <asp:Label ID="Label1" runat="server" Text="Enter Course Name:"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlcourse" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlcourse_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddl_course" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_course_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -25,7 +25,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td colspan="2">
-                        <asp:GridView ID="gvDisplayTopic" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvDisplayTopic_SelectedIndexChanged" Width="918px">
+                        <asp:GridView ID="gv_DisplayTopic" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvDisplayTopic_SelectedIndexChanged" Width="918px">
                             <AlternatingRowStyle BackColor="White" />
                             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -37,7 +37,7 @@
                             <SortedDescendingCellStyle BackColor="#FCF6C0" />
                             <SortedDescendingHeaderStyle BackColor="#820000" />
                         </asp:GridView>
-                        <asp:Label ID="lblresult" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_result" runat="server"></asp:Label>
                         <br />
                     </td>
                 </tr>

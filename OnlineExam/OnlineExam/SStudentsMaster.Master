@@ -42,12 +42,12 @@
         <li><a href="StudentForm.aspx">Profile</a></li>
         
 	
-		<li><a href="InstructorForm.aspx">Instructor</a></li>
+		
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
 		  
           <ul class="dropdown-menu">
-            <li><a href="Display_topics_per_Course.aspx">Topic Per Course</a></li>
+            <li><a href="Student_Display_topics_per_Course.aspx">Topic Per Course</a></li>
            
           </ul>
         </li>
