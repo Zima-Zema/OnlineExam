@@ -16,7 +16,7 @@ namespace OnlineExam
             {
                 ddlCourse.DataSource = BusinessLayer.Display_course_by_Idand_Name();
                 ddlCourse.DataValueField = "Crs-ID";
-                ddlCourse.DataTextField = "Crs-ID";
+                ddlCourse.DataTextField = "Crs-Name";
                 ddlCourse.DataBind();
             }
 

@@ -233,6 +233,7 @@
     <Content Include="css\footer.css" />
     <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
+    <Content Include="Instractor_Exam_and_students_by_date.aspx" />
     <Content Include="Student_Student_courses.aspx" />
     <Content Include="Student_Instructors_per_course.aspx" />
     <Content Include="Student_Display_topics_per_Course.aspx" />
@@ -660,6 +661,13 @@
     </Compile>
     <Compile Include="DisplayStudentAnswersAfterGeneration.aspx.designer.cs">
       <DependentUpon>DisplayStudentAnswersAfterGeneration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instractor_Exam_and_students_by_date.aspx.cs">
+      <DependentUpon>Instractor_Exam_and_students_by_date.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instractor_Exam_and_students_by_date.aspx.designer.cs">
+      <DependentUpon>Instractor_Exam_and_students_by_date.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_Student_courses.aspx.cs">
       <DependentUpon>Student_Student_courses.aspx</DependentUpon>

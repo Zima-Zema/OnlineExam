@@ -21,7 +21,7 @@ namespace OnlineExam
             {
                 try
                 {
-                    ddldept.DataSource = BusinessLayer.Display_course_by_Idand_Name();
+                    ddldept.DataSource = BusinessLayer.Display_Department_by_Idand_Name();
                     ddldept.DataTextField = "Dept_Name";
                     ddldept.DataValueField = "Dept_Id";
                     ListItem li = new ListItem("none", "0");

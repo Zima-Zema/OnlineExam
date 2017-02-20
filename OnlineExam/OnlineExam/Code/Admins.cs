@@ -39,6 +39,11 @@ namespace OnlineExam.Code
             return DBLayer.SelectData(stored, param);
         }
 
+        internal static void LogError(string v1, string v2, string v3, object p, string v4)
+        {
+            throw new NotImplementedException();
+        }
+
         public static int LogError(string message,string date,string time,string page,string func)
         { 
             string stored = "Log_Error";

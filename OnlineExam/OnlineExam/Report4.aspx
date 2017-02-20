@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
+    <form runat="server">
         <table class="nav-justified">
             <tr>
                 <td class="auto-style2">&nbsp;</td>
@@ -59,6 +59,6 @@
                 </td>
             </tr>
         </table>
-    
+    </form>
 </asp:Content>
 

@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using OnlineExam.Code;
+using System.IO;
+
 namespace OnlineExam
 {
     public partial class Report3 : System.Web.UI.Page
@@ -32,13 +35,15 @@ namespace OnlineExam
         {
             try
             {
-                DataTable dt = Reports.Report33(int.Parse(ddlinstructor.SelectedValue));
+                DataTable dt = Reports.report3(int.Parse(ddlinstructor.SelectedValue));
                 GVR3.DataSource = dt;
                 GVR3.DataBind();
             }
-            catch
+            catch(Exception ex)
             {
                 lblresult.Text = "Error in Instructor Data";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddldept_SelectedIndexChanged");
+
             }
 
 

@@ -34,7 +34,7 @@ namespace OnlineExam
                     Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Page_Load");
 
                 }
-                
+
             }
         }
     }
