@@ -38,7 +38,7 @@ namespace WebApplication1.Admin
             {
 
                 lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_EditQuestion_SelectedIndexChanged");
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "FullDDLWithCourses");
 
             }
             
@@ -105,7 +105,7 @@ namespace WebApplication1.Admin
             catch (Exception ex)
             {
                 lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "DetailsView1_ModeChanging");
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "DetailsView1_PageIndexChanging1");
 
             }
             

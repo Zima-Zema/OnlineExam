@@ -21,37 +21,55 @@ namespace WebApplication1
         }
        private void FillddlistwithSudent()
         {
-            ddl_student.Items.Clear();
-            
-            ddl_student.DataSource = StudentsBL.GetStusent();
-            ddl_student.DataTextField = "St-Fname";
-            ddl_student.DataValueField = "St-ID";
-            ddl_student.DataBind();
-            ListItem m = new ListItem("none", "0");
-            ddl_student.Items.Insert(0, m);
+            try
+            {
+                ddl_student.Items.Clear();
 
-            ddl_dept.Items.Clear();
-            ddl_dept.DataSource = DepartmentBL.GetAllDepartment();
-            ddl_dept.DataTextField = "Dept_Name";
-            ddl_dept.DataValueField = "Dept_Id";
-            ddl_dept.DataBind();
-            ListItem D = new ListItem("none", "0");
-            ddl_dept.Items.Insert(0, D);
+                ddl_student.DataSource = StudentsBL.GetStusent();
+                ddl_student.DataTextField = "St-Fname";
+                ddl_student.DataValueField = "St-ID";
+                ddl_student.DataBind();
+                ListItem m = new ListItem("none", "0");
+                ddl_student.Items.Insert(0, m);
+
+                ddl_dept.Items.Clear();
+                ddl_dept.DataSource = DepartmentBL.GetAllDepartment();
+                ddl_dept.DataTextField = "Dept_Name";
+                ddl_dept.DataValueField = "Dept_Id";
+                ddl_dept.DataBind();
+                ListItem D = new ListItem("none", "0");
+                ddl_dept.Items.Insert(0, D);
+            }
+            catch (Exception ex)
+            {
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "FillddlistwithSudent");
+                lbl.Text = "Something Went Wrong";
+            }
+            
 
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable = StudentsBL.GetStudentByID(int.Parse(ddl_student.SelectedValue));
-            txt_fname.Text = dataTable.Rows[0]["St-Fname"].ToString();
-            txt_lname.Text = dataTable.Rows[0]["St-Lname"].ToString();
-            txt_stdID.Text = dataTable.Rows[0]["St-ID"].ToString();
-            txt_username.Text = dataTable.Rows[0]["username"].ToString();
-            txt_password.Text = dataTable.Rows[0]["password"].ToString();
-            ddl_dept.SelectedValue = dataTable.Rows[0]["Dept_Id"].ToString();
-            cb_active.Checked = (bool)dataTable.Rows[0]["active"];
-            lbl.Text = string.Empty;
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable = StudentsBL.GetStudentByID(int.Parse(ddl_student.SelectedValue));
+                txt_fname.Text = dataTable.Rows[0]["St-Fname"].ToString();
+                txt_lname.Text = dataTable.Rows[0]["St-Lname"].ToString();
+                txt_stdID.Text = dataTable.Rows[0]["St-ID"].ToString();
+                txt_username.Text = dataTable.Rows[0]["username"].ToString();
+                txt_password.Text = dataTable.Rows[0]["password"].ToString();
+                ddl_dept.SelectedValue = dataTable.Rows[0]["Dept_Id"].ToString();
+                cb_active.Checked = (bool)dataTable.Rows[0]["active"];
+                lbl.Text = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "DropDownList1_SelectedIndexChanged");
+                lbl.Text = "Something Went Wrong";
+            }
+            
         }
        protected void Create_Click(object sender, EventArgs e)
        {
@@ -68,17 +86,26 @@ namespace WebApplication1
             {
                 if (!String.IsNullOrWhiteSpace(txt_fname.Text)&&ddl_dept.SelectedIndex!=0)
                 {
-                    int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
-                    if (rows > 0)
+                    try
                     {
-                        lbl.Text = "Successfully Added :)";
-                        FillddlistwithSudent();
-                        Create_Click(sender, e);
+                        int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                        if (rows > 0)
+                        {
+                            lbl.Text = "Successfully Added :)";
+                            FillddlistwithSudent();
+                            Create_Click(sender, e);
+                        }
+                        else
+                        {
+                            lbl.Text = "Somthing Went Wrong :(";
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        lbl.Text = "Somthing Went Wrong :(";
+                        Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Insert_Click");
+                        lbl.Text = "Something Went Wrong";
                     }
+                    
                 }
                 else
                 {
@@ -152,7 +179,7 @@ namespace WebApplication1
             {
 
                 lbl.Text = "Somthing Went Wrong :(";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Delete_Click");
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Update_Click");
 
             }
 

@@ -103,7 +103,7 @@
                             <asp:Label ID="Label10" runat="server" Text='<%# Bind("Model") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Ans1">
+                    <asp:TemplateField HeaderText="A">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("ans1") %>' Width="300px"></asp:TextBox>
                         </EditItemTemplate>
@@ -114,7 +114,7 @@
                             <asp:Label ID="Label7" runat="server" Text='<%# Bind("Ans1") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Ans2">
+                    <asp:TemplateField HeaderText="B">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("ans2") %>' Width="300px"></asp:TextBox>
                         </EditItemTemplate>
@@ -125,7 +125,7 @@
                             <asp:Label ID="Label8" runat="server" Text='<%# Bind("Ans2") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Ans3">
+                    <asp:TemplateField HeaderText="C">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("ans3") %>' Width="300px"></asp:TextBox>
                         </EditItemTemplate>
@@ -136,7 +136,7 @@
                             <asp:Label ID="Label9" runat="server" Text='<%# Bind("Ans3") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Ans4">
+                    <asp:TemplateField HeaderText="D">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ans4") %>' Width="300px"></asp:TextBox>
                         </EditItemTemplate>

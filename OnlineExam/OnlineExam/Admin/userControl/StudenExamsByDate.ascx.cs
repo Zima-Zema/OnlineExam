@@ -17,9 +17,17 @@ namespace WebApplication1.Admin.Admin_UC
 
         protected void cal_examDate_SelectionChanged(object sender, EventArgs e)
         {
-            //GridView1.DataSource = Stud_examBL.selectStudentsExambyDate(Calendar1.SelectedDate.Date.ToString());
-            gv_ExamDate.DataSource = ExamBL.GetExamByDate(cal_examDate.SelectedDate.Date.ToString());
-            gv_ExamDate.DataBind();
+            try
+            {
+                gv_ExamDate.DataSource = ExamBL.GetExamByDate(cal_examDate.SelectedDate.Date.ToString());
+                gv_ExamDate.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "FullDDL");
+                lbl_status.Text = "انت اتغفلت";
+            }
 
         }
     }

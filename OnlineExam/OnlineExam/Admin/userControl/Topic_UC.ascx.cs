@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,25 +23,42 @@ namespace WebApplication1.Admin
 
         private void FullDDLWithTopics()
         {
-            ddl_topics.Items.Clear();
-            ddl_topics.DataSource = TopicBL.GetAllTopic();
-            ddl_topics.DataTextField = "Topic-Name";
-            ddl_topics.DataValueField = "Topic-ID";
-            ddl_topics.DataBind();
-            ListItem m = new ListItem("none", "0");
-            ddl_topics.Items.Insert(0, m);
+            try
+            {
+                ddl_topics.Items.Clear();
+                ddl_topics.DataSource = TopicBL.GetAllTopic();
+                ddl_topics.DataTextField = "Topic-Name";
+                ddl_topics.DataValueField = "Topic-ID";
+                ddl_topics.DataBind();
+                ListItem m = new ListItem("none", "0");
+                ddl_topics.Items.Insert(0, m);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
     
 
         protected void ddl_topics_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-            DataTable dataTable = new DataTable();
-            dataTable = TopicBL.GetTopicById(int.Parse(ddl_topics.SelectedValue));
-            txt_TopicId.Text = dataTable.Rows[0]["Topic-ID"].ToString();
-            txt_TopicName.Text = dataTable.Rows[0]["Topic-Name"].ToString();
-         
+            try
+            {
+                DataTable dataTable = new DataTable();
+                dataTable = TopicBL.GetTopicById(int.Parse(ddl_topics.SelectedValue));
+                txt_TopicId.Text = dataTable.Rows[0]["Topic-ID"].ToString();
+                txt_TopicName.Text = dataTable.Rows[0]["Topic-Name"].ToString();
+            }
+            catch (Exception ex)
+            {
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+                lbl_status.Text = "Something Went Wrong";
+            }
+
+
         }
 
         protected void btn_NewTopic_Click(object sender, EventArgs e)
@@ -50,36 +68,56 @@ namespace WebApplication1.Admin
 
         protected void btn_InsertTopic_Click(object sender, EventArgs e)
         {
-            // Label1.Text = topic.insertTopic(TextBox1.Text, DropDownList2.SelectedValue, TextBox3.Text) + "  Row Affected";
-            int rows = TopicBL.Add_Topic(txt_TopicName.Text);
-            if (rows>0)
+            try
             {
-                lbl_status.Text = "Done";
-                FullDDLWithTopics();
-                ddl_topics.Items.Clear();
-                btn_NewTopic_Click(sender, e);
+                int rows = TopicBL.Add_Topic(txt_TopicName.Text);
+                if (rows > 0)
+                {
+                    lbl_status.Text = "Done";
+                    FullDDLWithTopics();
+                    ddl_topics.Items.Clear();
+                    btn_NewTopic_Click(sender, e);
+                }
+                else
+                {
+                    lbl_status.Text = "Failed";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lbl_status.Text = "Failed";
+
+                lbl_status.Text = "Something Went Wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
             }
-          
-           
+
+
+
         }
 
         protected void btn_update_Click(object sender, EventArgs e)
         {
-            int rows = TopicBL.Edit_Topic(txt_TopicName.Text, int.Parse(txt_TopicId.Text));
-            if (rows>0)
+            try
             {
-                lbl_status.Text = "Done";
-                FullDDLWithTopics();
-                ddl_topics.Items.Clear();
-                btn_NewTopic_Click(sender, e);
+                int rows = TopicBL.Edit_Topic(txt_TopicName.Text, int.Parse(txt_TopicId.Text));
+                if (rows > 0)
+                {
+                    lbl_status.Text = "Done";
+                    FullDDLWithTopics();
+                    ddl_topics.Items.Clear();
+                    btn_NewTopic_Click(sender, e);
+                }
+                else
+                {
+                    lbl_status.Text = "Failed";
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                lbl_status.Text = "Failed";
+                lbl_status.Text = "Something went wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
             }
 
 
@@ -88,18 +126,28 @@ namespace WebApplication1.Admin
 
         protected void btn_Delete_Click(object sender, EventArgs e)
         {
-            int rows = TopicBL.Remove_Topic(int.Parse(txt_TopicId.Text));
-            if (rows > 0)
+            try
             {
-                lbl_status.Text = "Done";
-                FullDDLWithTopics();
-                ddl_topics.Items.Clear();
-                btn_NewTopic_Click(sender, e);
+                int rows = TopicBL.Remove_Topic(int.Parse(txt_TopicId.Text));
+                if (rows > 0)
+                {
+                    lbl_status.Text = "Done";
+                    FullDDLWithTopics();
+                    ddl_topics.Items.Clear();
+                    btn_NewTopic_Click(sender, e);
+                }
+                else
+                {
+                    lbl_status.Text = "Failed";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lbl_status.Text = "Failed";
+                lbl_status.Text = "Something Went Wrong";
+                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
             }
+
 
         }
 
