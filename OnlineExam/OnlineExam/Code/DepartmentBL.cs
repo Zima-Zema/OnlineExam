@@ -51,5 +51,15 @@ namespace OnlineExam.Code
             SqlParameter[] param = { new SqlParameter("@deptId", id) };
             return DBLayer.DmlOperation(stored, param);
         }
+
+        public static DataTable GetDepartmentByName(string name)
+        {
+            string stored = "Get_Department_By_Name";
+            SqlParameter[] param =
+            {
+                new SqlParameter("@name",name)
+            };
+            return DBLayer.SelectData(stored, param);
+        }
     }
 }

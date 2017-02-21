@@ -11,7 +11,7 @@
                 <asp:Label ID="lbl_mcq" runat="server" Text="Number Of MCQ"></asp:Label>
             </td>
             <td class="auto-style1">
-                <asp:DropDownList ID="ddl_mcq" runat="server">
+                <asp:DropDownList ID="ddl_mcq" runat="server" CssClass="form-control">
                 </asp:DropDownList>
             </td>
             <td class="auto-style1"></td>
@@ -19,7 +19,7 @@
         <tr>
             <td>Select Course ID</td>
             <td>
-                <asp:DropDownList ID="ddl_courseId" runat="server" OnSelectedIndexChanged="ddl_courseId_SelectedIndexChanged">
+                <asp:DropDownList ID="ddl_courseId" runat="server" OnSelectedIndexChanged="ddl_courseId_SelectedIndexChanged" CssClass="form-control">
                 </asp:DropDownList>
                 <asp:Label ID="lbl_status" runat="server"></asp:Label>
             </td>
@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align: center">
-                <asp:Button ID="btn_GenerateExam" runat="server" OnClick="btn_GenerateExam_Click" Text="Generate Exam" />
+                <asp:Button ID="btn_GenerateExam" runat="server" OnClick="btn_GenerateExam_Click" Text="Generate Exam" CssClass="btn btn-primary" />
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -35,10 +35,10 @@
 </asp:Panel>
 <asp:Panel ID="Panel2" runat="server" Visible="False">
     Select Student To Assign for exam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:DropDownList ID="ddl_selectStn" runat="server" OnSelectedIndexChanged="ddl_selectStn_SelectedIndexChanged">
+    <asp:DropDownList ID="ddl_selectStn" runat="server" OnSelectedIndexChanged="ddl_selectStn_SelectedIndexChanged" CssClass="form-control">
     </asp:DropDownList>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="btn_assign" runat="server" OnClick="btn_assign_Click" Text="Assign" />
+    <asp:Button ID="btn_assign" runat="server" OnClick="btn_assign_Click" Text="Assign" Width="89px" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lbl_assStatus" runat="server"></asp:Label>
 </asp:Panel>

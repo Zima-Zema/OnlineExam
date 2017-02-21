@@ -28,7 +28,7 @@
             <asp:Label ID="lbl_course" runat="server" CssClass="col-md-2 control-label" Text="Select Course"></asp:Label>
         </td>
         <td colspan="2">
-            <asp:DropDownList ID="ddl_course" runat="server" CssClass="form-control">
+            <asp:DropDownList ID="ddl_course" runat="server" CssClass="form-control" AutoPostBack="True">
             </asp:DropDownList>
         </td>
     </tr>
@@ -54,6 +54,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_tfHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead" runat="server" ControlToValidate="txt_tfHead" ErrorMessage="Please Enter Question Head"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -61,8 +62,9 @@
                             <asp:Label ID="lbl_model" runat="server" CssClass="col-md-2 control-label" Text="Model Answer"></asp:Label>
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddl_tfModel" runat="server" CssClass="form-control">
+                            <asp:DropDownList ID="ddl_tfModel" runat="server" CssClass="form-control" AutoPostBack="True">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead1" runat="server" ControlToValidate="ddl_tfModel" ErrorMessage="Please Enter Model Answer"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -89,6 +91,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_mcqHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead0" runat="server" ControlToValidate="txt_mcqHead" ErrorMessage="Please Enter Question Head"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -106,6 +109,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_ansA" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead3" runat="server" ControlToValidate="txt_ansA" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -114,6 +118,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_ansB" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead4" runat="server" ControlToValidate="txt_ansB" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -122,6 +127,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_ansC" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead5" runat="server" ControlToValidate="txt_ansC" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -130,6 +136,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txt_ansD" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead6" runat="server" ControlToValidate="txt_ansD" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -137,8 +144,9 @@
                             <asp:Label ID="lbl_model1" runat="server" CssClass="col-md-2 control-label" Text="Model Answer"></asp:Label>
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddl_mcqModel" runat="server" CssClass="form-control">
+                            <asp:DropDownList ID="ddl_mcqModel" runat="server" CssClass="form-control" AutoPostBack="True">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_Qhead2" runat="server" ControlToValidate="ddl_mcqModel" ErrorMessage="Please Enter Model Answer"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                 </table>

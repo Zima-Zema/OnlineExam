@@ -45,6 +45,11 @@ namespace OnlineExam.Code
             string stored = "Remove_Course";
             SqlParameter[] param = { new SqlParameter("@crs_id", id) };
             return DBLayer.DmlOperation(stored, param);
-        } 
+        }
+        public static DataTable GetCourseByName(string name) {
+            string stored = "Get_Course_By_Name";
+            SqlParameter[] param = { new SqlParameter("@name", name) };
+            return DBLayer.SelectData(stored, param);
+        }
     }
 }

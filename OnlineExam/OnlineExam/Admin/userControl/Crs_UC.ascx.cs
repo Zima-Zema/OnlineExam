@@ -50,24 +50,43 @@ namespace WebApplication1.Admin
         }
         protected void btn_insert_Click(object sender, EventArgs e)
         {
+            lbl_status.Text = string.Empty;
             try
             {
                 if (Page.IsValid)
                 {
-
-                    int rows = CourseBL.CreateCourse(txt_Cname.Text, int.Parse(txt_Cduration.Text), int.Parse(ddl_topic.SelectedValue));
-                    if (rows > 0)
+                    DataTable valid = CourseBL.GetCourseByName(txt_Cname.Text.ToString());
+                    if (valid.Rows.Count<1)
                     {
-                        lbl_status.Text = "Successfully Added";
+                        if (ddl_topic.SelectedIndex>0)
+                        {
+                            int rows = CourseBL.CreateCourse(txt_Cname.Text, int.Parse(txt_Cduration.Text), int.Parse(ddl_topic.SelectedValue));
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Added";
+                            }
+                            FullDDL();
+                            btn_Newcourse_Click(sender, e);
+                            txt_Cid.Enabled = false;
+                        }
+                        else
+                        {
+                            lbl_status.Text = "You Have To Assign To Topic"; 
+                        }
+                        
                     }
-                    FullDDL();
-                    btn_Newcourse_Click(sender, e);
-                    txt_Cid.Enabled = false;
+                    else
+                    {
+                        lbl_status.Text = "This Course is Already Found";
+                    }
+
+
+                    
                 }
             }
             catch (Exception ex)
             {
-                lbl_status.Text = "Somting went wrong";
+                lbl_status.Text = "Something wrong";
                 Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_insert_Click");
 
             }
@@ -100,16 +119,34 @@ namespace WebApplication1.Admin
         {
             try
             {
+
                 if (Page.IsValid)
                 {
-                    int rows = CourseBL.EditCourse(int.Parse(txt_Cid.Text), txt_Cname.Text, int.Parse(txt_Cduration.Text), int.Parse(ddl_topic.SelectedValue));
-                    if (rows > 0)
+                    DataTable valid = CourseBL.GetCourseByName(txt_Cname.Text.ToString());
+                    if (valid.Rows.Count < 1)
                     {
-                        lbl_status.Text = "Successfully Updated";
+                        if (ddl_topic.SelectedIndex > 0)
+                        {
+                            int rows = CourseBL.EditCourse(int.Parse(txt_Cid.Text), txt_Cname.Text, int.Parse(txt_Cduration.Text), int.Parse(ddl_topic.SelectedValue));
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Updated";
+                            }
+                            FullDDL();
+                            btn_Newcourse_Click(sender, e);
+                            txt_Cid.Enabled = false;
+                        }
+                        else
+                        {
+                            lbl_status.Text = "You Have To Assign To Topic";
+                        }
+                            
                     }
-                    FullDDL();
-                    btn_Newcourse_Click(sender, e);
-                    txt_Cid.Enabled = false;
+                    else
+                    {
+                        lbl_status.Text = "This Course is Already Found";
+                    }
+                        
                 }
             }
             catch (Exception ex)

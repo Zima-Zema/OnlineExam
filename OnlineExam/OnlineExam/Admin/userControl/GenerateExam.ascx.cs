@@ -77,7 +77,7 @@ namespace WebApplication1.Admin.Admin_UC
             {
                 DataTable dataTable = ExamBL.GenerateExamDT(int.Parse(ddl_courseId.SelectedValue.ToString()), int.Parse(ddl_mcq.SelectedValue.ToString()), 10 - int.Parse(ddl_mcq.SelectedValue.ToString()));
 
-                lbl_status.Text = "Exam Generated";
+                lbl_assStatus.Text = "Exam Generated";
                 Session["generated_exID"] = dataTable.Rows[0]["EX_ID"].ToString();
                 Panel2.Visible = true;
                 Panel1.Visible = false;
@@ -100,11 +100,10 @@ namespace WebApplication1.Admin.Admin_UC
             {
                 lbl_assStatus.Text = "";
                 DataTable dataTable = new DataTable();
-                //dt = Stud_examBL.selectStudentsbyExam_Stud_ID(Session["generated_exID"].ToString(), DropDownList2.SelectedValue);
+                
                 dataTable = ExamBL.GetAssignedExamByStdID(int.Parse(ddl_selectStn.SelectedValue));
                 if (dataTable.Rows.Count < 1)
                 {
-                    // Stud_examBL.StudentExam(Session["generated_exID"].ToString(), DropDownList2.SelectedValue);
                     int rows = ExamBL.AssignStdToExam(int.Parse(ddl_selectStn.SelectedValue), int.Parse(Session["generated_exID"].ToString()));
                     lbl_assStatus.Text = "Assigned";
                 }

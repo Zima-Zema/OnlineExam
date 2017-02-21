@@ -82,46 +82,47 @@ namespace WebApplication1
 
        protected void Insert_Click(object sender, EventArgs e)
        {
-            if (String.IsNullOrWhiteSpace(txt_stdID.Text))
+            if (Page.IsValid)
             {
-                if (!String.IsNullOrWhiteSpace(txt_fname.Text)&&ddl_dept.SelectedIndex!=0)
+
+
+                if (String.IsNullOrWhiteSpace(txt_stdID.Text))
                 {
-                    try
+                    if (!String.IsNullOrWhiteSpace(txt_fname.Text) && ddl_dept.SelectedIndex != 0)
                     {
-                        int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
-                        if (rows > 0)
+                        try
                         {
-                            lbl.Text = "Successfully Added :)";
-                            FillddlistwithSudent();
-                            Create_Click(sender, e);
+                            int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                            if (rows > 0)
+                            {
+                                lbl.Text = "Successfully Added :)";
+                                FillddlistwithSudent();
+                                Create_Click(sender, e);
+                            }
+                            else
+                            {
+                                lbl.Text = "Somthing Went Wrong :(";
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            lbl.Text = "Somthing Went Wrong :(";
+                            Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Insert_Click");
+                            lbl.Text = "Something Went Wrong";
                         }
+
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Insert_Click");
-                        lbl.Text = "Something Went Wrong";
+                        lbl.Text = "You must Enter first name Or Invalid Department name";
+
                     }
-                    
                 }
                 else
                 {
-                    lbl.Text = "You must Enter first name Or Invalid Department name";
-
+                    lbl.Text = "This Student is Already Add :(";
                 }
-            }
-            else
-            {
-                lbl.Text = "This Student is Already Add :(";
-            }
 
-            
-            
-       
-
+            }
        }
 
        protected void Delete_Click(object sender, EventArgs e)
@@ -160,30 +161,42 @@ namespace WebApplication1
 
        protected void Update_Click(object sender, EventArgs e)
        {
-            try
+            if (Page.IsValid)
             {
-                int rows = StudentsBL.Edit_Student(int.Parse(ddl_student.SelectedValue), txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl.Text = "Successfully Updated :)";
-                    FillddlistwithSudent();
-                    Create_Click(sender, e);
+                    if (ddl_dept.SelectedIndex!=0)
+                    {
+                        int rows = StudentsBL.Edit_Student(int.Parse(ddl_student.SelectedValue), txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                        if (rows > 0)
+                        {
+                            lbl.Text = "Successfully Updated :)";
+                            FillddlistwithSudent();
+                            Create_Click(sender, e);
+                        }
+                        else
+                        {
+                            lbl.Text = "Somthing Went Wrong :(";
+                        }
+                    }
+                    else
+                    {
+                        lbl.Text = "You Have To Assign Department ";
+                    }
+                    
+
                 }
-                else
+                catch (Exception ex)
                 {
+
                     lbl.Text = "Somthing Went Wrong :(";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Update_Click");
+
                 }
 
             }
-            catch (Exception ex)
-            {
-
-                lbl.Text = "Somthing Went Wrong :(";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Update_Click");
-
-            }
-
-
         }
 
     }

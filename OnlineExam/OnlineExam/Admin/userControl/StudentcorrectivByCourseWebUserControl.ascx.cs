@@ -61,7 +61,7 @@ namespace WebApplication1
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
                 lbl_status.Text = "Somthing Went Wrong";

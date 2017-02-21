@@ -68,59 +68,86 @@ namespace WebApplication1.Admin
 
         protected void btn_InsertTopic_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int rows = TopicBL.Add_Topic(txt_TopicName.Text);
-                if (rows > 0)
-                {
-                    lbl_status.Text = "Done";
-                    FullDDLWithTopics();
-                    ddl_topics.Items.Clear();
-                    btn_NewTopic_Click(sender, e);
-                }
-                else
-                {
-                    lbl_status.Text = "Failed";
-                }
-            }
-            catch (Exception ex)
+            if (Page.IsValid)
             {
 
-                lbl_status.Text = "Something Went Wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
+                try
+                {
+                    DataTable valid = TopicBL.Get_Topic_By_Name(txt_TopicName.Text.ToString());
+                    if (valid.Rows.Count<1)
+                    {
+                        int rows = TopicBL.Add_Topic(txt_TopicName.Text);
+                        if (rows > 0)
+                        {
+                            lbl_status.Text = "Done";
+                            FullDDLWithTopics();
+                            ddl_topics.Items.Clear();
+                            btn_NewTopic_Click(sender, e);
+                        }
+                        else
+                        {
+                            lbl_status.Text = "Failed";
+                        }
+                    }
+                    else
+                    {
+                        lbl_status.Text = "This Topic is Already Found";
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+
+                    lbl_status.Text = "Something Went Wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
+                }
 
             }
-
-
 
         }
 
         protected void btn_update_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int rows = TopicBL.Edit_Topic(txt_TopicName.Text, int.Parse(txt_TopicId.Text));
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl_status.Text = "Done";
-                    FullDDLWithTopics();
-                    ddl_topics.Items.Clear();
-                    btn_NewTopic_Click(sender, e);
+
+                    DataTable valid = TopicBL.Get_Topic_By_Name(txt_TopicName.Text.ToString());
+                    if (valid.Rows.Count < 1)
+                    {
+                        int rows = TopicBL.Edit_Topic(txt_TopicName.Text, int.Parse(txt_TopicId.Text));
+                        if (rows > 0)
+                        {
+                            lbl_status.Text = "Done";
+                            FullDDLWithTopics();
+                            ddl_topics.Items.Clear();
+                            btn_NewTopic_Click(sender, e);
+                        }
+                        else
+                        {
+                            lbl_status.Text = "Failed";
+                        }
+                    }
+                    else
+                    {
+                        lbl_status.Text = "This Topic is Already Found";
+                    }
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    lbl_status.Text = "Failed";
+                    lbl_status.Text = "Something went wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+
                 }
 
             }
-            catch (Exception ex)
-            {
-                lbl_status.Text = "Something went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
-
-            }
-
-
 
         }
 

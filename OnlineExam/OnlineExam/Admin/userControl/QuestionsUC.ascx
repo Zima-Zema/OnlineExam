@@ -338,7 +338,7 @@
                             <asp:Button ID="btn_update" runat="server" CssClass="btn btn-primary" Text="Update" Width="150px" OnClick="btn_update_Click" />
                         </td>
                         <td class="auto-style6">
-                            <asp:Button ID="btn_delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this Instructor?');" CssClass="btn btn-danger" Text="Delete" Width="150px" OnClick="btn_delete_Click" />
+                            <asp:Button ID="btn_delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this Question?');" CssClass="btn btn-danger" Text="Delete" Width="150px" OnClick="btn_delete_Click" />
                         </td>
                         <td colspan="2">
                             <asp:Button ID="btn_cancel0" runat="server" Text="Cancel" Width="150px" CssClass="btn btn-default" OnClick="btn_cancel0_Click" />

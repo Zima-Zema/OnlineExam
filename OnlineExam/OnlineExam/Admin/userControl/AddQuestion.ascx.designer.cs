@@ -85,6 +85,15 @@ namespace OnlineExam.Admin.userControl {
         protected global::System.Web.UI.WebControls.TextBox txt_tfHead;
         
         /// <summary>
+        /// rfv_Qhead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead;
+        
+        /// <summary>
         /// lbl_model control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace OnlineExam.Admin.userControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_tfModel;
+        
+        /// <summary>
+        /// rfv_Qhead1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead1;
         
         /// <summary>
         /// Label2 control.
@@ -157,6 +175,15 @@ namespace OnlineExam.Admin.userControl {
         protected global::System.Web.UI.WebControls.TextBox txt_mcqHead;
         
         /// <summary>
+        /// rfv_Qhead0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead0;
+        
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -202,6 +229,15 @@ namespace OnlineExam.Admin.userControl {
         protected global::System.Web.UI.WebControls.TextBox txt_ansA;
         
         /// <summary>
+        /// rfv_Qhead3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead3;
+        
+        /// <summary>
         /// lbl_B control.
         /// </summary>
         /// <remarks>
@@ -218,6 +254,15 @@ namespace OnlineExam.Admin.userControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_ansB;
+        
+        /// <summary>
+        /// rfv_Qhead4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead4;
         
         /// <summary>
         /// lbl_C control.
@@ -238,6 +283,15 @@ namespace OnlineExam.Admin.userControl {
         protected global::System.Web.UI.WebControls.TextBox txt_ansC;
         
         /// <summary>
+        /// rfv_Qhead5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead5;
+        
+        /// <summary>
         /// lbl_D control.
         /// </summary>
         /// <remarks>
@@ -256,6 +310,15 @@ namespace OnlineExam.Admin.userControl {
         protected global::System.Web.UI.WebControls.TextBox txt_ansD;
         
         /// <summary>
+        /// rfv_Qhead6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead6;
+        
+        /// <summary>
         /// lbl_model1 control.
         /// </summary>
         /// <remarks>
@@ -272,6 +335,15 @@ namespace OnlineExam.Admin.userControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_mcqModel;
+        
+        /// <summary>
+        /// rfv_Qhead2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Qhead2;
         
         /// <summary>
         /// btn_insert control.

@@ -48,6 +48,12 @@ namespace OnlineExam.Code
             return  DBLayer.SelectData(stored,param);
            
         }
+        public static DataTable Get_Topic_By_Name(string name)
+        {
+            string stored = "Get_Topic_By_Name";
+            SqlParameter[] param = { new SqlParameter("@name", name) };
+            return DBLayer.SelectData(stored, param);
+        }
 
     }
 }

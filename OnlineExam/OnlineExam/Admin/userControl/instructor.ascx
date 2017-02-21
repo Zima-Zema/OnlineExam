@@ -74,6 +74,7 @@
         </td>
         <td class="auto-style9" colspan="2">
             <asp:TextBox ID="txt_InsName" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_InsName" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style6">
             &nbsp;</td>
@@ -94,6 +95,7 @@
         </td>
         <td class="auto-style9" colspan="2">
             <asp:TextBox ID="txt_InsSalary" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only Money" ValidationExpression="\d+" ControlToValidate="txt_InsSalary"></asp:RegularExpressionValidator>
         </td>
         <td class="auto-style6">
             &nbsp;</td>
@@ -103,8 +105,9 @@
             <asp:Label ID="lbl_insdepart" runat="server" AssociatedControlID="ddl_Dept" Text="Department" CssClass="col-md-2 control-label"></asp:Label>
         </td>
         <td class="auto-style9" colspan="2">
-            <asp:DropDownList ID="ddl_Dept" runat="server" CssClass="form-control">
+            <asp:DropDownList ID="ddl_Dept" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Dept_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_Dept" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style6">&nbsp;</td>
     </tr>

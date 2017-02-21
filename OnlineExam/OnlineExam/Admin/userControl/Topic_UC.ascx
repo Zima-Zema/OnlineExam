@@ -25,6 +25,7 @@
         <td class="auto-style2">Topic_Name</td>
         <td class="auto-style1">
             <asp:TextBox ID="txt_TopicName" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_TopicName" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -38,7 +39,7 @@
     </tr>
     <tr>
         <td class="auto-style2">
-            <asp:Button ID="btn_NewTopic" runat="server" Text="New Topic" OnClick="btn_NewTopic_Click" Width="100px" />
+            <asp:Button ID="btn_NewTopic" runat="server" Text="New Topic" OnClientClick="return confirm('Warning!!!! Are you sure you want to delete this Topic and All Its Courses?');" OnClick="btn_NewTopic_Click" Width="100px" />
         </td>
         <td class="auto-style1">
             <asp:Label ID="lbl_status" runat="server"></asp:Label>

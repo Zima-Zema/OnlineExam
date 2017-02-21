@@ -81,51 +81,76 @@ namespace WebApplication1
 
         protected void btn_InsertIns_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int rows = InstractorBL.CreateInstructor(txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsSalary.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl_status.Text = "Successfully Added :)";
-                    FullDDL();
-                    btn_NewINs_Click(sender, e);
-                    txt_instId.Enabled = false;
+                    if (ddl_Dept.SelectedIndex != 0)
+                    {
+                        int rows = InstractorBL.CreateInstructor(txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsSalary.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
+                        if (rows > 0)
+                        {
+                            lbl_status.Text = "Successfully Added :)";
+                            FullDDL();
+                            btn_NewINs_Click(sender, e);
+                            txt_instId.Enabled = false;
+                        }
+                        else
+                        {
+                            lbl_status.Text = "Connection Time Out :(";
+                        }
+                    }
+                    else
+                    {
+                        lbl_status.Text = "You Have to Assign Department";
+                    }
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    lbl_status.Text = "Somthing Went Wrong :(";
+                    lbl_status.Text = "Somting went wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_InsertIns_Click");
+
                 }
-            }
-            catch (Exception ex)
-            {
-                lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_InsertIns_Click");
 
             }
-
-
         }
 
         protected void btn_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int rows = InstractorBL.EditInstructor(int.Parse(txt_instId.Text), txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsDegree.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl_status.Text = "Successfully Updated";
+                    if (ddl_Dept.SelectedIndex != 0)
+                    {
+
+
+                        int rows = InstractorBL.EditInstructor(int.Parse(txt_instId.Text), txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsDegree.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
+                        if (rows > 0)
+                        {
+                            lbl_status.Text = "Successfully Updated";
+                        }
+                        FullDDL();
+                        btn_NewINs_Click(sender, e);
+                        txt_instId.Enabled = false;
+                    }
+                    else
+                    {
+                        lbl_status.Text = "You Have To Assign Department";
+                    }
                 }
-                FullDDL();
-                btn_NewINs_Click(sender, e);
-                txt_instId.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_Update_Click");
+                catch (Exception ex)
+                {
+                    lbl_status.Text = "Somting went wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_Update_Click");
 
+                }
             }
-
 
         }
 
@@ -149,6 +174,11 @@ namespace WebApplication1
                 Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_Delete_Click");
 
             }
+
+        }
+
+        protected void ddl_Dept_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

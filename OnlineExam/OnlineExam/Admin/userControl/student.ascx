@@ -45,6 +45,7 @@
         <td class="auto-style2">First Name </td>
         <td>
             <asp:TextBox ID="txt_fname" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_fname" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -86,7 +87,7 @@
     </tr>
     <tr>
         <td class="auto-style2">
-            <asp:Button ID="btn_delete" runat="server" OnClick="Delete_Click" Text="Delete" CssClass="btn btn-danger" />
+            <asp:Button ID="btn_delete" runat="server" OnClick="Delete_Click" OnClientClick="return confirm('Are you sure you want to delete this Student?');" Text="Delete" CssClass="btn btn-danger" />
         </td>
         <td>
             <asp:Button ID="btn_create" runat="server" OnClick="Create_Click" Text="Create New Student" CssClass="btn btn-default" />

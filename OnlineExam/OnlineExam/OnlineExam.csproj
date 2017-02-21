@@ -198,6 +198,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\Images\redmaintenance.jpg" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\Profile.aspx" />
     <Content Include="Admin\userControl\AddQuestion.ascx" />
@@ -208,7 +209,6 @@
     <Content Include="Admin\userControl\DepartmentManagerWebUserControl.ascx" />
     <Content Include="Admin\userControl\DepartmentWebUserControl1.ascx" />
     <Content Include="Admin\userControl\Displayall_Instructors.ascx" />
-    <Content Include="Admin\userControl\Edit.ascx" />
     <Content Include="Admin\userControl\GenerateExam.ascx" />
     <Content Include="Admin\userControl\instructor.ascx" />
     <Content Include="Admin\userControl\InstructorsPerCourseWebUserControl.ascx" />
@@ -233,6 +233,11 @@
     <Content Include="css\footer.css" />
     <Content Include="css\styles.css" />
     <Content Include="DisplayStudentAnswersAfterGeneration.aspx" />
+    <Content Include="Images\CSS-Tricks-404-error-page.jpg" />
+    <Content Include="Images\redmaintenance.jpg" />
+    <Content Include="Images\maintenance.png" />
+    <Content Include="Images\under-maintenance.jpg" />
+    <Content Include="Images\under_maintenance.png" />
     <Content Include="Instractor_Exam_and_students_by_date.aspx" />
     <Content Include="Student_Student_courses.aspx" />
     <Content Include="Student_Instructors_per_course.aspx" />
@@ -519,13 +524,6 @@
     </Compile>
     <Compile Include="Admin\userControl\Displayall_Instructors.ascx.designer.cs">
       <DependentUpon>Displayall_Instructors.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\userControl\Edit.ascx.cs">
-      <DependentUpon>Edit.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\userControl\Edit.ascx.designer.cs">
-      <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\userControl\GenerateExam.ascx.cs">
       <DependentUpon>GenerateExam.ascx</DependentUpon>

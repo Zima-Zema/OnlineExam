@@ -50,24 +50,49 @@ namespace WebApplication1
 
         protected void btn_insert_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int rows = DepartmentBL.CreateDepartment(txt_Deptname.Text, txt_DeptDecs.Text, txt_Deptloc.Text, int.Parse(ddl_manager.SelectedValue.ToString()), cl_hireDate.SelectedDate);
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl_status.Text = "Successfully Added";
+                    DataTable valid = DepartmentBL.GetDepartmentByName(txt_Deptname.Text.ToString());
+                    if (valid.Rows.Count<1)
+                    {
+                        if (ddl_manager.SelectedIndex!=0)
+                        {
+                            int rows = DepartmentBL.CreateDepartment(txt_Deptname.Text, txt_DeptDecs.Text, txt_Deptloc.Text, int.Parse(ddl_manager.SelectedValue.ToString()), cl_hireDate.SelectedDate);
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Added";
+                            }
+                            else
+                            {
+                                lbl_status.Text = "Connection Time Out";
+                            }
+                            FullDD();
+                            btn_NewDept_Click(sender, e);
+                            txt_Deptid.Enabled = false;
+                        }
+                        else
+                        {
+                            lbl_status.Text = "You Have To Assign Manager";
+                        }
+
+                    }
+                    else
+                    {
+                        lbl_status.Text = "This DepartMent is Already Found";
+                    }
+                    
                 }
-                FullDD();
-                btn_NewDept_Click(sender, e);
-                txt_Deptid.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_insert_Click");
+                catch (Exception ex)
+                {
+                    lbl_status.Text = "Somting went wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "btn_insert_Click");
 
+                }
             }
-
         }
 
         protected void ddl_selectDept_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,24 +123,50 @@ namespace WebApplication1
 
         protected void btn_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int rows = DepartmentBL.EditDepartment(int.Parse(txt_Deptid.Text), txt_Deptname.Text, txt_DeptDecs.Text, txt_Deptloc.Text, int.Parse(ddl_manager.SelectedValue), cl_hireDate.SelectedDate);
-                if (rows > 0)
+
+
+                try
                 {
-                    lbl_status.Text = "Successfully Updated";
+
+                    DataTable valid = DepartmentBL.GetDepartmentByName(txt_Deptname.Text.ToString());
+                    if (valid.Rows.Count < 1)
+                    {
+                        if (ddl_manager.SelectedIndex != 0)
+                        {
+                            int rows = DepartmentBL.EditDepartment(int.Parse(txt_Deptid.Text), txt_Deptname.Text, txt_DeptDecs.Text, txt_Deptloc.Text, int.Parse(ddl_manager.SelectedValue), cl_hireDate.SelectedDate);
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Updated";
+                            }
+                            else
+                            {
+
+                            }
+                            FullDD();
+                            btn_NewDept_Click(sender, e);
+                            txt_Deptid.Enabled = false;
+                        }
+                        else
+                        {
+                            lbl_status.Text = "You Have To Assign Manager";
+                        }
+
+                    }
+                    else
+                    {
+                        lbl_status.Text = "This DepartMent is Already Found";
+                    }
+
                 }
-                FullDD();
-                btn_NewDept_Click(sender, e);
-                txt_Deptid.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                lbl_status.Text = "Somting went wrong";
-                Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_Dept_SelectedIndexChanged");
+                catch (Exception ex)
+                {
+                    lbl_status.Text = "Somting went wrong";
+                    Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "ddl_Dept_SelectedIndexChanged");
 
+                }
             }
-
         }
 
         protected void btn_NewDept_Click(object sender, EventArgs e)

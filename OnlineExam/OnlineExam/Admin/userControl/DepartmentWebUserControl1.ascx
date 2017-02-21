@@ -60,6 +60,7 @@
         </td>
         <td class="auto-style3" colspan="2">
             <asp:TextBox ID="txt_Deptname" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Deptname" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style4">&nbsp;</td>
         <td>&nbsp;</td>
@@ -94,6 +95,7 @@
         <td class="auto-style3" colspan="2">
             <asp:DropDownList ID="ddl_manager" runat="server" CssClass="form-control">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_manager" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style4">
             &nbsp;</td>
@@ -137,7 +139,7 @@
             <asp:Button ID="btn_Update" runat="server" OnClick="btn_Update_Click" Text="Update" Width="150px" CssClass="btn btn-primary" />
         </td>
         <td class="auto-style2">
-            <asp:Button ID="btn_Delete" runat="server" Text="Delete" Width="150px" OnClick="btn_Delete_Click" CssClass="btn btn_danger" />
+            <asp:Button ID="btn_Delete" runat="server" Text="Delete" Width="150px" OnClientClick="return confirm('Are you sure you want to delete this Department?');" OnClick="btn_Delete_Click" CssClass="btn btn_danger" />
         </td>
         <td class="auto-style4">
             <asp:Button ID="btn_NewDept" runat="server" OnClick="btn_NewDept_Click" Text="New Department" Width="150px" CssClass="btn btn-default" />

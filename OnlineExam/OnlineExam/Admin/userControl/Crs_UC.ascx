@@ -61,6 +61,7 @@
         </td>
         <td class="auto-style3">
             <asp:TextBox ID="txt_Cname" runat="server" CssClass="form-control" Width="150px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Cname" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style4">&nbsp;</td>
         <td>&nbsp;</td>
@@ -72,12 +73,12 @@
         <td class="auto-style3">
             <asp:TextBox ID="txt_Cduration" runat="server" CssClass="form-control" Width="150px"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only Numbers" ValidationExpression="\d+" ControlToValidate="txt_Cduration"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_Cduration" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style4">
             &nbsp;</td>
         <td>
-            <asp:Label ID="lbl_status" runat="server"></asp:Label>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style6">
@@ -86,6 +87,7 @@
         <td class="auto-style7">
             <asp:DropDownList ID="ddl_topic" runat="server" CssClass="form-control">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_topic" ErrorMessage="*"></asp:RequiredFieldValidator>
         </td>
         <td class="auto-style8"></td>
         <td class="auto-style10"></td>
@@ -96,7 +98,7 @@
         </td>
         <td class="auto-style3">
             <asp:Button ID="btn_Update" runat="server" OnClick="btn_Update_Click" Text="Update" Width="150px" />
-            <asp:Button ID="btn_delete" runat="server" Text="Delete" Width="150px" OnClick="btn_delete_Click" />
+            <asp:Button ID="btn_delete" runat="server" Text="Delete" Width="150px" OnClientClick="return confirm('Are you sure you want to delete this Course?');" OnClick="btn_delete_Click" />
         </td>
         <td class="auto-style4">
             <asp:Button ID="btn_Newcourse" runat="server" OnClick="btn_Newcourse_Click" Text="New Course" Width="150px" />
@@ -107,7 +109,8 @@
         <td class="auto-style2">
             &nbsp;</td>
         <td class="auto-style3">
-            &nbsp;</td>
+            <asp:Label ID="lbl_status" runat="server"></asp:Label>
+        </td>
         <td class="auto-style4">
             &nbsp;</td>
         <td>
