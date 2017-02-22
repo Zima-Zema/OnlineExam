@@ -157,7 +157,7 @@
         <td class="auto-style2">&nbsp;</td>
         <td colspan="2">
             <asp:Button ID="btn_insert" runat="server" CssClass="btn btn-primary" OnClick="btn_insert_Click" Text="Create" Width="200px" />
-            <asp:Button ID="btn_cancel" runat="server" CssClass="btn btn-danger" OnClick="btn_cancel_Click" Text="Cancel" Width="150px" />
+            <asp:Button ID="btn_cancel" runat="server" CssClass="btn btn-danger" CausesValidation="False" OnClick="btn_cancel_Click" Text="Cancel" Width="150px" />
             <asp:Label ID="lbl_status" runat="server"></asp:Label>
         </td>
     </tr>

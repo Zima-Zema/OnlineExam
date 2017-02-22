@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="QuestionsUC.ascx.cs" Inherits="WebApplication1.Admin.QuestionsUC" %>
 <%@ Register src="AddQuestion.ascx" tagname="AddQuestion" tagprefix="uc1" %>
-<%@ Register src="Edit.ascx" tagname="Edit" tagprefix="uc2" %>
+
 <style type="text/css">
 
     .auto-style1 {
@@ -186,19 +186,17 @@
     </tr>
     <tr>
         <td colspan="7">
-            <asp:Panel ID="pl_manage" runat="server">
+            <asp:Panel ID="pl_manage_Question" runat="server">
                 <table style="width:100%;">
                     <tr>
                         <td class="auto-style7">
-                            <asp:Label ID="lbl_course" runat="server" Text="Courses"></asp:Label>
-                        </td>
+                            &nbsp;</td>
                         <td colspan="2">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:Label ID="lbl_Q" runat="server" Text="Questions"></asp:Label>
-                        </td>
+                            &nbsp;</td>
                         <td colspan="2">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
@@ -216,6 +214,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_tfHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_mcqHead" ErrorMessage="Enter Question Head"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -223,7 +222,7 @@
                                             <asp:Label ID="lbl_tftupe" runat="server" CssClass="col-md-2 control-label" Text="Type"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddl_tfType" runat="server" Enabled="False">
+                                            <asp:DropDownList ID="ddl_tfType" runat="server" Enabled="False" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -232,7 +231,7 @@
                                             <asp:Label ID="lbl_model" runat="server" CssClass="col-md-2 control-label" Text="Model Answer"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddl_tfModel" runat="server" CssClass="form-control">
+                                            <asp:DropDownList ID="ddl_tfModel" runat="server" CssClass="form-control" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -267,6 +266,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_mcqHead" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_tfHead" ErrorMessage="Enter Question Head"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -293,6 +293,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_ansA" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_ansA" ErrorMessage="*"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -301,6 +302,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_ansB" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txt_ansB" ErrorMessage="*"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -309,6 +311,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_ansC" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_ansC" ErrorMessage="*"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -317,6 +320,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txt_ansD" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_ansD" ErrorMessage="*"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -324,7 +328,7 @@
                                             <asp:Label ID="lbl_model1" runat="server" CssClass="col-md-2 control-label" Text="Model Answer"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddl_mcqModel" runat="server" CssClass="form-control">
+                                            <asp:DropDownList ID="ddl_mcqModel" runat="server" CssClass="form-control" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>

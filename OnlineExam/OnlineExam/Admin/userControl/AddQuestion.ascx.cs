@@ -69,31 +69,40 @@ namespace OnlineExam.Admin.userControl
             {
                 if (Page.IsValid)
                 {
-                    if (btn_mcqType.Text == "MCQ")
+                    if (ddl_course.SelectedIndex != 0)
                     {
-                        int rows = Questions.Create_MCQ("MCQ", int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_course.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
-                        if (rows > 0)
+
+
+                        if (btn_mcqType.Text == "MCQ")
                         {
-                            lbl_status.Text = "Successfully Added";
-                            txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
+                            int rows = Questions.Create_MCQ("MCQ", int.Parse(txt_mcqGrade.Text), ddl_mcqModel.SelectedValue, txt_mcqHead.Text, int.Parse(ddl_course.SelectedValue), "A", txt_ansA.Text, "B", txt_ansB.Text, "C", txt_ansC.Text, "D", txt_ansD.Text);
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Added";
+                                txt_mcqGrade.Text = txt_mcqHead.Text = txt_ansA.Text = txt_ansB.Text = txt_ansC.Text = txt_ansD.Text = string.Empty;
+
+                            }
 
                         }
-
-                    }
-                    else if (btn_tfType.Text == "TF")
-                    {
-                        int rows = Questions.Create_Question("TF", int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_course.SelectedValue));
-                        if (rows > 0)
+                        else if (btn_tfType.Text == "TF")
                         {
-                            lbl_status.Text = "Successfully Added";
-                            txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
+                            int rows = Questions.Create_Question("TF", int.Parse(txt_tfGrade.Text), ddl_tfModel.SelectedValue, txt_tfHead.Text, int.Parse(ddl_course.SelectedValue));
+                            if (rows > 0)
+                            {
+                                lbl_status.Text = "Successfully Added";
+                                txt_tfHead.Text = txt_tfGrade.Text = string.Empty;
+                            }
+                        }
+                        else
+                        {
+                            lbl_status.Text = "Please Select Question Type";
+                            pl_mcq.Visible = false;
+                            pl_true.Visible = false;
                         }
                     }
                     else
                     {
-                        lbl_status.Text = "Please Select Question Type";
-                        pl_mcq.Visible = false;
-                        pl_true.Visible = false;
+                        lbl_status.Text = "Enter Course Please";
                     }
                 }
             }
