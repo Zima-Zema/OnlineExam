@@ -15,6 +15,8 @@ namespace WebApplication1
             if(!IsPostBack)
             {
                 FullDDL();
+                gv_lastchance.DataSource = StdCrsIns.LastChance();
+                gv_lastchance.DataBind();
             }
         }
 
@@ -37,6 +39,24 @@ namespace WebApplication1
                 ddl_Dept.DataBind();
                 ListItem D = new ListItem("none", "0");
                 ddl_Dept.Items.Insert(0, D);
+
+
+                ddl_course.Items.Clear();
+                ddl_course.DataSource = CourseBL.GetAllCourses();
+                ddl_course.DataTextField = "Crs-Name";
+                ddl_course.DataValueField = "Crs-ID";
+                ddl_Dept.Items.Insert(0, D);
+                ddl_course.DataBind();
+
+                ddl_allIns.Items.Clear();
+                ddl_allIns.DataSource = InstractorBL.GetAllIns();
+                ddl_allIns.DataTextField = "Ins-Name";
+                ddl_allIns.DataValueField = "Ins-ID";
+                ddl_allIns.DataBind();
+               
+                ddl_selectInst.Items.Insert(0, I);
+
+
             }
             catch (Exception ex)
             {
@@ -62,7 +82,7 @@ namespace WebApplication1
                 txt_userName.Text = dataTable.Rows[0]["username"].ToString();
                 txt_password.Text = dataTable.Rows[0]["password"].ToString();
                 ddl_Dept.SelectedValue = dataTable.Rows[0]["Depart-ID"].ToString();
-                cb_active.Checked = (bool)dataTable.Rows[0]["active"];
+                
             }
             catch (Exception ex)
             {
@@ -89,7 +109,8 @@ namespace WebApplication1
                 {
                     if (ddl_Dept.SelectedIndex != 0)
                     {
-                        int rows = InstractorBL.CreateInstructor(txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsSalary.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
+                        int rows = InstractorBL.CreateInstructor(txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsSalary.Text, txt_userName.Text, txt_password.Text);
+                       
                         if (rows > 0)
                         {
                             lbl_status.Text = "Successfully Added :)";
@@ -130,7 +151,7 @@ namespace WebApplication1
                     {
 
 
-                        int rows = InstractorBL.EditInstructor(int.Parse(txt_instId.Text), txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsDegree.Text, txt_userName.Text, txt_password.Text, cb_active.Checked.ToString());
+                        int rows = InstractorBL.EditInstructor(int.Parse(txt_instId.Text), txt_InsName.Text, int.Parse(ddl_Dept.SelectedValue), txt_InsDegree.Text, txt_InsDegree.Text, txt_userName.Text, txt_password.Text);
                         if (rows > 0)
                         {
                             lbl_status.Text = "Successfully Updated";
@@ -178,6 +199,114 @@ namespace WebApplication1
         }
 
         protected void ddl_Dept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_assigntocourse_Click(object sender, EventArgs e)
+        {
+            if (ddl_allIns.SelectedIndex!=0 && ddl_course.SelectedIndex!=0)
+            {
+                int rows = StdCrsIns.CreateInsCourse(int.Parse(ddl_allIns.SelectedValue), int.Parse(ddl_course.SelectedValue));
+                if (rows>0)
+                {
+                    lbl_status.Text = "Assigned";
+                }
+                else
+                {
+                    lbl_status.Text = "اتغفلت";
+                }
+            }
+        }
+
+       
+        //protected void gv_inscrs_RowEditing1(object sender, GridViewEditEventArgs e)
+        //{
+        //    //gv_inscrs.EditIndex = e.NewEditIndex;
+        //}
+
+        //protected void gv_inscrs_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        //{
+        //    int insid = int.Parse((gv_inscrs.Rows[e.RowIndex].FindControl("ddl_insforcrs") as DropDownList).SelectedValue);
+        //    int crsid = int.Parse((gv_inscrs.Rows[e.RowIndex].FindControl("ddl_course") as DropDownList).SelectedValue);
+        //    int rows = StdCrsIns.EditInsCourseByIns(insid, crsid);
+        //    if (rows>0)
+        //    {
+        //        gv_inscrs.EditIndex = -1;
+        //        gv_inscrs.DataBind();
+        //    }
+        //}
+
+        protected void gv_lastchance_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            DataTable dataTable= StdCrsIns.LastChance();
+            gv_lastchance.EditIndex = e.NewEditIndex;
+            gv_lastchance.DataSource = dataTable;
+            gv_lastchance.DataBind();
+            DropDownList ddl_ins = (gv_lastchance.Rows[e.NewEditIndex].FindControl("ddl_lastchanceI") as DropDownList);
+            ddl_ins.DataSource = InstractorBL.GetAllIns();
+            ddl_ins.DataTextField = "Ins-Name";
+            ddl_ins.DataValueField = "Ins-ID";
+            ddl_ins.DataBind();
+            ddl_ins.SelectedValue = dataTable.Rows[e.NewEditIndex]["Ins-ID"].ToString();
+
+
+            DropDownList ddl_course = (gv_lastchance.Rows[e.NewEditIndex].FindControl("dd_lastchaneC") as DropDownList);
+            ddl_course.DataSource = CourseBL.GetAllCourses();
+            ddl_course.DataTextField = "Crs-Name";
+            ddl_course.DataValueField = "Crs-ID";
+            ddl_course.DataBind();
+            ddl_course.SelectedValue = dataTable.Rows[e.NewEditIndex]["Crs-ID"].ToString();
+
+
+        }
+
+        protected void gv_lastchance_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gv_lastchance.EditIndex = -1;
+            DataTable dataTable = StdCrsIns.LastChance();
+            gv_lastchance.DataSource = dataTable;
+            gv_lastchance.DataBind();
+        }
+
+        protected void gv_lastchance_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable dataTable = StdCrsIns.LastChance();
+
+
+            int insid = int.Parse(dataTable.Rows[e.RowIndex]["Ins-ID"].ToString());
+            int crsid = int.Parse(dataTable.Rows[e.RowIndex]["Crs-ID"].ToString());
+            int rows = StdCrsIns.Remove_Ins_Course(insid, crsid);
+            if (rows > 0)
+            {
+                dataTable = StdCrsIns.LastChance();
+                gv_lastchance.DataSource = dataTable;
+                gv_lastchance.DataBind();
+            }
+        }
+
+        protected void gv_lastchance_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int insid = int.Parse((gv_lastchance.Rows[e.RowIndex].FindControl("ddl_lastchanceI") as DropDownList).SelectedValue);
+            int crsid = int.Parse((gv_lastchance.Rows[e.RowIndex].FindControl("dd_lastchaneC") as DropDownList).SelectedValue);
+            
+            int rows = StdCrsIns.EditInsCourseByIns(insid, crsid);
+            if (rows > 0)
+            {
+                gv_lastchance.EditIndex = -1;
+                DataTable dataTable = StdCrsIns.LastChance();
+                gv_lastchance.DataSource = dataTable;
+                gv_lastchance.DataBind();
+            }
+
+        }
+
+        protected void gv_lastchance_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void gv_lastchance_RowCreated(object sender, GridViewRowEventArgs e)
         {
 
         }

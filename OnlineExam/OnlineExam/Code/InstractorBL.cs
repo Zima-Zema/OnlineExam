@@ -52,7 +52,7 @@ namespace OnlineExam
             return DBLayer.SelectData(stored, param);
         }
 
-        public static int EditInstructor(int id, string name, int dept, string degree, string salary, string username,string password , string active)
+        public static int EditInstructor(int id, string name, int dept, string degree, string salary, string username,string password)
         {
             string stored = "Edit_Instructor";
             SqlParameter[] param = {
@@ -62,8 +62,7 @@ namespace OnlineExam
                 new SqlParameter("@degree",degree),
                 new SqlParameter("@salary",salary),
                 new SqlParameter("@user",username),
-                new SqlParameter("@pass",password),
-                new SqlParameter("@act",active)
+                new SqlParameter("@pass",password)
             };
             return DBLayer.DmlOperation(stored, param);
         }
@@ -81,7 +80,7 @@ namespace OnlineExam
             return DBLayer.DmlOperation(stored, param);
         }
 
-        public static int CreateInstructor(string name, int dept, string degree, string salary, string username, string password, string active)
+        public static int CreateInstructor(string name, int dept, string degree, string salary, string username, string password)
         {
             string stored = "Add_Instructor";
             SqlParameter[] param = {
@@ -90,8 +89,7 @@ namespace OnlineExam
                 new SqlParameter("@degree",degree),
                 new SqlParameter("@salary",salary),
                 new SqlParameter("@user",username),
-                new SqlParameter("@pass",password),
-                new SqlParameter("@act",active)
+                new SqlParameter("@pass",password)
             };
             return DBLayer.DmlOperation(stored, param);
         }

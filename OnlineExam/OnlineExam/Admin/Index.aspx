@@ -51,49 +51,49 @@
         <h3>Content</h3>
         <ul class="toggle" style="list-style-type: none;">
             <li class="auto-style1" >
-                <asp:Button runat="server" Text="Students Info." href="#" Width="200px" ID="student_btn" CssClass="btn btn-default" OnClick="student_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Students Info." CausesValidation="false" href="#" Width="200px" ID="student_btn" CssClass="btn btn-default" OnClick="student_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button runat="server" Text="Instructors Info." href="#" Width="200px" ID="ins_btn" CssClass="btn btn-default" OnClick="ins_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Instructors Info." CausesValidation="false" href="#" Width="200px" ID="ins_btn" CssClass="btn btn-default" OnClick="ins_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button runat="server" Text="Questions Info." href="#" Width="200px" ID="que_btn" CssClass="btn btn-default" OnClick="que_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Questions Info." CausesValidation="false" href="#" Width="200px" ID="que_btn" CssClass="btn btn-default" OnClick="que_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button runat="server" Text="Departments Info." href="#" Width="200px" ID="dept_btn" CssClass="btn btn-default" OnClick="dept_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Departments Info." CausesValidation="false" href="#" Width="200px" ID="dept_btn" CssClass="btn btn-default" OnClick="dept_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button runat="server" Text="Courses Info." href="#" Width="200px" ID="Crs_btn" CssClass="btn btn-default" OnClick="Crs_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Courses Info." CausesValidation="false" href="#" Width="200px" ID="Crs_btn" CssClass="btn btn-default" OnClick="Crs_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button runat="server" Text="Topics Info." href="#" Width="200px" ID="Topic_btn" CssClass="btn btn-default" OnClick="Topic_btn_Click"></asp:Button></li>
+                <asp:Button runat="server" Text="Topics Info." CausesValidation="false" href="#" Width="200px" ID="Topic_btn" CssClass="btn btn-default" OnClick="Topic_btn_Click" ValidateRequestMode="Disabled"></asp:Button></li>
             <li class="auto-style1">
-                <asp:Button ID="btn_deptManager" runat="server" Text="Departments and Managers" Width="200px" CssClass="btn btn-default" OnClick="btn_deptManager_Click" />
+                <asp:Button ID="btn_deptManager" runat="server" CausesValidation="false" Text="Departments and Managers" Width="200px" CssClass="btn btn-default" OnClick="btn_deptManager_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_topicCrs" runat="server" Text="Topics per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_topicCrs_Click" />
+                <asp:Button ID="btn_topicCrs" runat="server" CausesValidation="false" Text="Topics per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_topicCrs_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_ins" runat="server" Text="Instructor per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_ins_Click" />
+                <asp:Button ID="btn_ins" runat="server" CausesValidation="false" Text="Instructor per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_ins_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_QuesCrs" runat="server" Text="Questions per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_QuesCrs_Click" />
+                <asp:Button ID="btn_QuesCrs" runat="server" CausesValidation="false" Text="Questions per Course" Width="200px" CssClass="btn btn-default" OnClick="btn_QuesCrs_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_allINS" runat="server" Text="Display All Instructors" Width="200px" CssClass="btn btn-default" OnClick="btn_allINS_Click" />
+                <asp:Button ID="btn_allINS" runat="server" CausesValidation="false" Text="Display All Instructors" Width="200px" CssClass="btn btn-default" OnClick="btn_allINS_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_generate" runat="server" Text="Generate Exam" Width="200px" CssClass="btn btn-default" OnClick="btn_generate_Click" />
+                <asp:Button ID="btn_generate" runat="server" CausesValidation="false" Text="Generate Exam" Width="200px" CssClass="btn btn-default" OnClick="btn_generate_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_salaryINS" runat="server" Text="Salary of all instructors" Width="200px" CssClass="btn btn-default" OnClick="btn_salaryINS_Click" />
+                <asp:Button ID="btn_salaryINS" runat="server" CausesValidation="false" Text="Salary of all instructors" Width="200px" CssClass="btn btn-default" OnClick="btn_salaryINS_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_courseAVG" runat="server" Text="course with avg grade" Width="199px" CssClass="btn btn-default" OnClick="btn_courseAVG_Click" />
+                <asp:Button ID="btn_courseAVG" runat="server" CausesValidation="false" Text="course with avg grade" Width="199px" CssClass="btn btn-default" OnClick="btn_courseAVG_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_stdExamdate" runat="server" Text="Students exams By date" Width="200px" CssClass="btn btn-default" OnClick="btn_stdExamdate_Click" />
+                <asp:Button ID="btn_stdExamdate" runat="server" CausesValidation="false" Text="Students exams By date" Width="200px" CssClass="btn btn-default" OnClick="btn_stdExamdate_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_correctiveCourse" runat="server" Text="Corrective Students By Course" Width="200px" CssClass="btn btn-default" OnClick="btn_correctiveCourse_Click" />
+                <asp:Button ID="btn_correctiveCourse" runat="server" CausesValidation="false" Text="Corrective Students By Course" Width="200px" CssClass="btn btn-default" OnClick="btn_correctiveCourse_Click" ValidateRequestMode="Disabled" />
             </li>
             <li class="auto-style1">
-                <asp:Button ID="btn_correctiveDept" runat="server" Text="Corrective Students By Dept" Width="200px" CssClass="btn btn-default" OnClick="btn_correctiveDept_Click" />
+                <asp:Button ID="btn_correctiveDept" runat="server" CausesValidation="false" Text="Corrective Students By Dept" Width="200px" CssClass="btn btn-default" OnClick="btn_correctiveDept_Click" ValidateRequestMode="Disabled" />
             </li>
         </ul>
 

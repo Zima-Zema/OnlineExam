@@ -635,6 +635,7 @@
     <Compile Include="Code\QuestionPerCourse.cs" />
     <Compile Include="Code\Reports.cs" />
     <Compile Include="Code\SalaryOfAllInstructorsBL.cs" />
+    <Compile Include="Code\StdCrsIns.cs" />
     <Compile Include="Code\StudentsBL.cs" />
     <Compile Include="Code\TopicBL.cs" />
     <Compile Include="Code\TopicsPerCourse.cs" />

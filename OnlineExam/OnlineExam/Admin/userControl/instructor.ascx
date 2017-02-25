@@ -105,18 +105,9 @@
             <asp:Label ID="lbl_insdepart" runat="server" AssociatedControlID="ddl_Dept" Text="Department" CssClass="col-md-2 control-label"></asp:Label>
         </td>
         <td class="auto-style9" colspan="2">
-            <asp:DropDownList ID="ddl_Dept" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Dept_SelectedIndexChanged">
+            <asp:DropDownList ID="ddl_Dept" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Dept_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_Dept" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td class="auto-style6">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style7">
-            <asp:Label ID="lbl_insActive" runat="server" AssociatedControlID="cb_active" Text="Active" CssClass="col-md-2 control-label"></asp:Label>
-        </td>
-        <td class="auto-style9" colspan="2">
-            <asp:CheckBox ID="cb_active" runat="server" CssClass="form-control" />
         </td>
         <td class="auto-style6">&nbsp;</td>
     </tr>
@@ -125,7 +116,7 @@
             <asp:Button ID="btn_InsertIns" runat="server" Text="Insert" OnClick="btn_InsertIns_Click" CssClass="btn btn-primary" Width="150px" />
         </td>
         <td class="auto-style11">
-            <asp:Button ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" CssClass="btn btn-primary" Width="150px" Height="29px" />
+            <asp:Button ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" CssClass="btn btn-primary" Width="150px" />
         </td>
         <td class="auto-style12">
             <asp:Button ID="btn_Delete" runat="server" Text="Delete" OnClick="btn_Delete_Click" OnClientClick="return confirm('Are you sure you want to delete this Instructor?');" CssClass="btn btn-danger" Width="150px" />
@@ -140,6 +131,64 @@
             <asp:Label ID="lbl_status" runat="server"></asp:Label>
         </td>
         <td class="auto-style6">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="auto-style7">&nbsp;</td>
+        <td class="auto-style9" colspan="2">
+            <asp:Button ID="btn_assigntocourse" runat="server" Text="Add To Course" OnClick="btn_assigntocourse_Click" CssClass="btn btn-primary" Width="150px" Height="29px" />
+        </td>
+        <td class="auto-style6">
+            <asp:DropDownList ID="ddl_allIns" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Dept_SelectedIndexChanged" AutoPostBack="True">
+            </asp:DropDownList>
+            <asp:DropDownList ID="ddl_course" runat="server" CssClass="form-control" AutoPostBack="True">
+            </asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <asp:Panel ID="Panel1" runat="server" ValidateRequestMode="Disabled">
+                <table style="width:100%;">
+                    <tr>
+                        <td>
+                            <asp:GridView ID="gv_lastchance" runat="server" ValidationGroup="Edit" EnableModelValidation="False" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCancelingEdit="gv_lastchance_RowCancelingEdit" OnRowDeleting="gv_lastchance_RowDeleting" OnRowEditing="gv_lastchance_RowEditing" OnRowUpdating="gv_lastchance_RowUpdating" ValidateRequestMode="Disabled" OnRowCommand="gv_lastchance_RowCommand" OnRowCreated="gv_lastchance_RowCreated">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Instructor">
+                                        <EditItemTemplate>
+                                            <asp:DropDownList ID="ddl_lastchanceI" runat="server" AutoPostBack="True">
+                                            </asp:DropDownList>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("[Ins-Name]") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Course">
+                                        <EditItemTemplate>
+                                            <asp:DropDownList ID="dd_lastchaneC" runat="server" AutoPostBack="True">
+                                            </asp:DropDownList>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("[Crs-Name]") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:CommandField ShowEditButton="True" CausesValidation="false" ValidationGroup="edit" />
+                                    <asp:CommandField ShowDeleteButton="True" CausesValidation="false" ValidationGroup="delete" />
+                                </Columns>
+                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                <SortedDescendingHeaderStyle BackColor="#820000" />
+                            </asp:GridView>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </td>
     </tr>
 </table>
 
