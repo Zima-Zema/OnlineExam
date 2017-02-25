@@ -217,6 +217,9 @@ namespace WebApplication1
                     lbl_status.Text = "اتغفلت";
                 }
             }
+            gv_lastchance.DataSource = StdCrsIns.LastChance();
+            gv_lastchance.DataBind();
+
         }
 
        
