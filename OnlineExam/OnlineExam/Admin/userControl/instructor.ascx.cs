@@ -45,16 +45,17 @@ namespace WebApplication1
                 ddl_course.DataSource = CourseBL.GetAllCourses();
                 ddl_course.DataTextField = "Crs-Name";
                 ddl_course.DataValueField = "Crs-ID";
-                ddl_Dept.Items.Insert(0, D);
                 ddl_course.DataBind();
+                ListItem D1 = new ListItem("none", "0");
+                ddl_course.Items.Insert(0, D1);
 
                 ddl_allIns.Items.Clear();
                 ddl_allIns.DataSource = InstractorBL.GetAllIns();
                 ddl_allIns.DataTextField = "Ins-Name";
                 ddl_allIns.DataValueField = "Ins-ID";
                 ddl_allIns.DataBind();
-               
-                ddl_selectInst.Items.Insert(0, I);
+                ListItem i1 = new ListItem("none", "0");
+                ddl_allIns.Items.Insert(0, i1);
 
 
             }

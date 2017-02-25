@@ -21,7 +21,7 @@ namespace OnlineExam.Code
             SqlParameter[] param = { new SqlParameter("@sid", sid) };
             return DBLayer.SelectData(stored, param);
         }
-        public static int insert_Student(string Fname, string Lname, int deptid,string username,string pass,string act)
+        public static int insert_Student(string Fname, string Lname, int deptid,string username,string pass)
         {
             string stored = "Add_Student";
             SqlParameter[] param = {
@@ -29,8 +29,7 @@ namespace OnlineExam.Code
                 new SqlParameter("@Lname",Lname),
                 new SqlParameter("@dept_id",deptid),
                 new SqlParameter("@user",username),
-                new SqlParameter("@pass",pass),
-                new SqlParameter("@act",act)
+                new SqlParameter("@pass",pass)
             };
             return DBLayer.DmlOperation(stored, param);
         }

@@ -67,15 +67,29 @@ namespace OnlineExam.Code
             return DBLayer.SelectData(stored, param);
         }
 
+
+
+        //LastChanceForStudent
         public static DataTable LastChance()
         {
             return DBLayer.SelectData("LastChance");
+        }
+        public static DataTable LastChanceForStudent()
+        {
+            return DBLayer.SelectData("LastChanceForStudent");
         }
         public static int Remove_Ins_Course(int insid,int cid)
         {
             SqlParameter[] param = { new SqlParameter("@Iid", insid), new SqlParameter("@cid", cid) };
 
             return DBLayer.DmlOperation("Remove_Ins_Course", param);
+        }
+        //Remov_Stud_Course
+        public static int Remov_Stud_Course(int sid, int cid)
+        {
+            SqlParameter[] param = { new SqlParameter("@sid", sid), new SqlParameter("@cid", cid) };
+
+            return DBLayer.DmlOperation("Remov_Stud_Course", param);
         }
 
     }

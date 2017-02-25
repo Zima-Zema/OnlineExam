@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using OnlineExam.Code;
 using System.IO;
+using OnlineExam;
 
 namespace WebApplication1 
 {
@@ -17,6 +18,9 @@ namespace WebApplication1
             if(!IsPostBack)
             {
                 FillddlistwithSudent();
+                DataTable dataTable = StdCrsIns.LastChanceForStudent();
+                gv_lastchance.DataSource = dataTable;
+                gv_lastchance.DataBind();
             }
         }
        private void FillddlistwithSudent()
@@ -39,6 +43,24 @@ namespace WebApplication1
                 ddl_dept.DataBind();
                 ListItem D = new ListItem("none", "0");
                 ddl_dept.Items.Insert(0, D);
+
+                ddl_allstd.Items.Clear();
+                ddl_allstd.DataSource = StudentsBL.GetStusent();
+                ddl_allstd.DataTextField = "St-Fname";
+                ddl_allstd.DataValueField = "St-ID";
+                ddl_allstd.DataBind();
+                ListItem D1 = new ListItem("none", "0");
+                ddl_allstd.Items.Insert(0, D1);
+
+                ddl_course.Items.Clear();
+                ddl_course.DataSource = CourseBL.GetAllCourses();
+                ddl_course.DataTextField = "Crs-Name";
+                ddl_course.DataValueField = "Crs-ID";
+                ddl_course.DataBind();
+                ListItem D2 = new ListItem("none", "0");
+                ddl_course.Items.Insert(0, D2);
+
+
             }
             catch (Exception ex)
             {
@@ -92,34 +114,34 @@ namespace WebApplication1
                     {
                         try
                         {
-                            int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text, cb_active.Checked.ToString());
+                            int rows = StudentsBL.insert_Student(txt_fname.Text, txt_lname.Text, int.Parse(ddl_dept.SelectedValue), txt_username.Text, txt_password.Text);
                             if (rows > 0)
                             {
-                                lbl.Text = "Successfully Added :)";
+                                lbl_status.Text = "Successfully Added :)";
                                 FillddlistwithSudent();
                                 Create_Click(sender, e);
                             }
                             else
                             {
-                                lbl.Text = "Somthing Went Wrong :(";
+                                lbl_status.Text = "Somthing Went Wrong :(";
                             }
                         }
                         catch (Exception ex)
                         {
                             Admins.LogError(ex.Message.ToString(), DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString(), Path.GetFileName(Request.Url.AbsolutePath), "Insert_Click");
-                            lbl.Text = "Something Went Wrong";
+                            lbl_status.Text = "Something Went Wrong";
                         }
 
                     }
                     else
                     {
-                        lbl.Text = "You must Enter first name Or Invalid Department name";
+                        lbl_status.Text = "You must Enter first name Or Invalid Department name";
 
                     }
                 }
                 else
                 {
-                    lbl.Text = "This Student is Already Add :(";
+                    lbl_status.Text = "This Student is Already Add :(";
                 }
 
             }
@@ -140,12 +162,12 @@ namespace WebApplication1
                     }
                     else
                     {
-                        lbl.Text = "Somthing Went Wrong :(";
+                        lbl_status.Text = "Somthing Went Wrong :(";
                     }
                 }
                 else
                 {
-                    lbl.Text = "You must choose Student to Delete";
+                    lbl_status.Text = "You must choose Student to Delete";
 
                 }
 
@@ -199,5 +221,85 @@ namespace WebApplication1
             }
         }
 
+        protected void btn_assigntocourse_Click(object sender, EventArgs e)
+        {
+            if (ddl_allstd.SelectedIndex != 0 && ddl_course.SelectedIndex != 0)
+            {
+                int rows = StdCrsIns.CreateStdCourse(int.Parse(ddl_allstd.SelectedValue), int.Parse(ddl_course.SelectedValue));
+                if (rows > 0)
+                {
+                    lbl_status.Text = "Assigned";
+                }
+                else
+                {
+                    lbl_status.Text = "اتغفلت";
+                }
+            }
+            gv_lastchance.DataSource = StdCrsIns.LastChanceForStudent();
+            gv_lastchance.DataBind();
+        }
+
+        protected void gv_lastchance_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gv_lastchance.EditIndex = -1;
+            DataTable dataTable = StdCrsIns.LastChanceForStudent();
+            gv_lastchance.DataSource = dataTable;
+            gv_lastchance.DataBind();
+        }
+
+        protected void gv_lastchance_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable dataTable = StdCrsIns.LastChanceForStudent();
+
+            //Remov_Stud_Course
+            int sid = int.Parse(dataTable.Rows[e.RowIndex]["St-ID"].ToString());
+            int crsid = int.Parse(dataTable.Rows[e.RowIndex]["Crs-ID"].ToString());
+            int rows = StdCrsIns.Remov_Stud_Course(sid, crsid);
+            if (rows > 0)
+            {
+                dataTable = StdCrsIns.LastChanceForStudent();
+                gv_lastchance.DataSource = dataTable;
+                gv_lastchance.DataBind();
+            }
+        }
+
+        protected void gv_lastchance_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            DataTable dataTable = StdCrsIns.LastChanceForStudent();
+            gv_lastchance.EditIndex = e.NewEditIndex;
+            gv_lastchance.DataSource = dataTable;
+            gv_lastchance.DataBind();
+            DropDownList ddl_ins = (gv_lastchance.Rows[e.NewEditIndex].FindControl("ddl_lastchanceI") as DropDownList);
+            ddl_ins.DataSource = StudentsBL.GetStusent();
+            ddl_ins.DataTextField = "St-Fname";
+            ddl_ins.DataValueField = "St-ID";
+            ddl_ins.DataBind();
+            ddl_ins.SelectedValue = dataTable.Rows[e.NewEditIndex]["St-ID"].ToString();
+
+
+            DropDownList ddl_course = (gv_lastchance.Rows[e.NewEditIndex].FindControl("dd_lastchaneC") as DropDownList);
+            ddl_course.DataSource = CourseBL.GetAllCourses();
+            ddl_course.DataTextField = "Crs-Name";
+            ddl_course.DataValueField = "Crs-ID";
+            ddl_course.DataBind();
+            ddl_course.SelectedValue = dataTable.Rows[e.NewEditIndex]["Crs-ID"].ToString();
+        }
+
+        protected void gv_lastchance_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int sid = int.Parse((gv_lastchance.Rows[e.RowIndex].FindControl("ddl_lastchanceI") as DropDownList).SelectedValue);
+            int crsid = int.Parse((gv_lastchance.Rows[e.RowIndex].FindControl("dd_lastchaneC") as DropDownList).SelectedValue);
+
+            int rows = StdCrsIns.EditStdCourseByStudent(sid, crsid);
+            if (rows > 0)
+            {
+                gv_lastchance.EditIndex = -1;
+                DataTable dataTable = StdCrsIns.LastChanceForStudent();
+                gv_lastchance.DataSource = dataTable;
+                gv_lastchance.DataBind();
+            }
+        }
+
+     
     }
 }

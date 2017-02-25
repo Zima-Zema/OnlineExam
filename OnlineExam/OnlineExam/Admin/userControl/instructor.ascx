@@ -135,7 +135,7 @@
     <tr>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9" colspan="2">
-            <asp:Button ID="btn_assigntocourse" runat="server" Text="Add To Course" OnClick="btn_assigntocourse_Click" CssClass="btn btn-primary" Width="150px" Height="29px" />
+            <asp:Button ID="btn_assigntocourse" CausesValidation="false" runat="server" Text="Add To Course" OnClick="btn_assigntocourse_Click" CssClass="btn btn-primary" Width="150px" Height="29px" />
         </td>
         <td class="auto-style6">
             <asp:DropDownList ID="ddl_allIns" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_Dept_SelectedIndexChanged" AutoPostBack="True">
